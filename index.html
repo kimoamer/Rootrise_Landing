@@ -191,7 +191,8 @@
     </nav>
 
     <!-- Hero Section (Brand Background Dark Blue #132938) -->
-    <header class="relative pt-28 pb-12 lg:pt-40 lg:pb-32 overflow-hidden flex flex-col justify-center min-h-[100dvh] lg:min-h-[90vh] bg-brand-dark">
+    <!-- Updated: min-h-screen for full height, items-center for true vertical centering, safe pt-24 padding -->
+    <header class="relative pt-24 pb-12 lg:pt-32 lg:pb-32 overflow-hidden flex items-center min-h-screen bg-brand-dark">
         
         <!-- Background Video -->
         <div class="absolute inset-0 w-full h-full z-0">
@@ -236,7 +237,8 @@
             </svg>
         </div>
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full h-full flex flex-col justify-center">
+        <!-- Updated: Removed h-full/flex-col to allow natural vertical centering by parent -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
             <div class="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
                 <!-- Hero Content -->
                 <div class="max-w-2xl text-center lg:text-left mx-auto lg:mx-0">
