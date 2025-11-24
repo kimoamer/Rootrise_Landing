@@ -89,16 +89,18 @@
             background: linear-gradient(90deg, #132938 0%, #23445B 50%, #2D5068 100%);
         }
 
-        /* Card Styles */
-        .rootrise-card {
-            background-color: #213552; /* UI Card BG */
-            border: 1px solid rgba(45, 80, 104, 0.5); /* Brand Highlight with opacity */
-            transition: all 0.3s ease;
+        /* Modern Card Styles */
+        .rootrise-card-modern {
+            background: linear-gradient(145deg, #213552 0%, #1a2a42 100%);
+            border: 1px solid rgba(45, 80, 104, 0.3);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        .rootrise-card:hover {
-            border-color: #E1A549; /* Gold on hover */
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(19, 41, 56, 0.5);
+        
+        .rootrise-card-modern:hover {
+            border-color: rgba(225, 165, 73, 0.5); /* Gold with opacity */
+            box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.3), 0 0 15px rgba(225, 165, 73, 0.1);
+            transform: translateY(-8px);
         }
 
         /* Glassmorphism for Floating Elements */
@@ -115,6 +117,14 @@
             filter: drop-shadow(0 0 15px rgba(225, 165, 73, 0.15));
         }
         
+        /* Card Icon Glow */
+        .icon-glow-gold {
+            box-shadow: 0 0 15px rgba(225, 165, 73, 0.2);
+        }
+        .icon-glow-gray {
+            box-shadow: 0 0 15px rgba(95, 106, 115, 0.2);
+        }
+
         /* Mobile Menu Transition */
         #mobile-menu {
             transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
@@ -229,14 +239,6 @@
             <div class="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
                 <!-- Hero Content -->
                 <div class="max-w-2xl text-center lg:text-left mx-auto lg:mx-0">
-                    <!-- Badge using Brand Highlight & Gold Text -->
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-light/40 border border-brand-gold/30 text-brand-gold text-sm font-semibold mb-6 backdrop-blur-sm shadow-[0_0_15px_rgba(225,165,73,0.15)]">
-                        <span class="relative flex h-2 w-2">
-                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-gold opacity-75"></span>
-                          <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-gold"></span>
-                        </span>
-                        System Active
-                    </div>
                     
                     <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-ui-text-primary leading-[1.1] mb-6 drop-shadow-xl">
                         AI Infrastructure for <br class="hidden sm:block"/> <span class="brand-gradient-text">SME Intelligence</span>
@@ -249,7 +251,7 @@
                     <div class="h-px w-24 bg-brand-gold/50 mb-6 mx-auto lg:mx-0"></div>
 
                     <p class="text-base text-ui-text-secondary mb-8 leading-relaxed opacity-80">
-                        RootRise adapts to different mandates and objectives, from export access to climate finance, from innovation to operational upgrading.
+                        RootRise adapts to different mandates and objectives, from export access to climate finance, from innovation to operational upgrading. By embedding intelligence into every step, RootRise makes upgrading scalable, affordable, and investment-ready.
                     </p>
                     
                     <!-- Hero CTA (Single Learn More Button) -->
@@ -315,247 +317,108 @@
     </section>
 
     <!-- What RootRise Delivers (Card BG #213552) -->
-    <section class="py-16 md:py-24 bg-ui-dark" id="features">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-12 md:mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-ui-text-primary mb-4">What RootRise Delivers</h2>
-                <p class="text-lg text-ui-text-secondary">Comprehensive transformation solutions that drive sustainable growth and investment readiness.</p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Card 1 (Gold Icon) -->
-                <div class="rootrise-card rounded-2xl p-8 group">
-                    <div class="w-14 h-14 bg-ui-icon-gold rounded-xl flex items-center justify-center text-ui-dark text-2xl mb-6 shadow-lg shadow-black/20">
-                        <i class="fa-solid fa-arrow-trend-up"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-ui-text-primary mb-3 group-hover:text-brand-gold transition-colors">Sustained Growth Journeys</h3>
-                    <p class="text-ui-text-secondary leading-relaxed">
-                        SMEs move beyond reactive problem-solving into structured growth, with embedded transformation associates inside the business.
-                    </p>
-                </div>
-
-                <!-- Card 2 (Standard Icon - Cool Gray) -->
-                <div class="rootrise-card rounded-2xl p-8 group">
-                    <div class="w-14 h-14 bg-ui-icon-gray rounded-xl flex items-center justify-center text-ui-text-primary text-2xl mb-6 shadow-lg shadow-black/20">
-                        <i class="fa-solid fa-cubes-stacked"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-ui-text-primary mb-3 group-hover:text-brand-gold transition-colors">Structured & Digitized Systems</h3>
-                    <p class="text-ui-text-secondary leading-relaxed">
-                        Businesses adopt structured and digitized systems that drive operational consistency, higher quality, and stronger readiness.
-                    </p>
-                </div>
-
-                <!-- Card 3 (Gold Icon) -->
-                <div class="rootrise-card rounded-2xl p-8 group">
-                    <div class="w-14 h-14 bg-ui-icon-gold rounded-xl flex items-center justify-center text-ui-dark text-2xl mb-6 shadow-lg shadow-black/20">
-                        <i class="fa-solid fa-file-contract"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-ui-text-primary mb-3 group-hover:text-brand-gold transition-colors">Credible Investment Cases</h3>
-                    <p class="text-ui-text-secondary leading-relaxed">
-                        SMEs build robust, AI-enabled analysis, building evidence-based investment cases and make confident financing decisions.
-                    </p>
-                </div>
-            </div>
+    <section class="py-16 md:py-24 bg-ui-dark relative overflow-hidden" id="features">
+        <!-- Background Decor -->
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none opacity-20">
+            <div class="absolute top-1/4 left-0 w-96 h-96 bg-brand-light rounded-full blur-[100px] -translate-x-1/2"></div>
+            <div class="absolute bottom-1/4 right-0 w-96 h-96 bg-brand-medium rounded-full blur-[100px] translate-x-1/2"></div>
         </div>
-    </section>
 
-    <!-- Feature Zig-Zag Section 1 -->
-    <section class="py-16 md:py-20 bg-brand-dark overflow-hidden relative border-t border-brand-medium">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
-                <!-- Visual -->
-                <div class="w-full lg:w-1/2 relative order-2 lg:order-1">
-                    <div class="relative bg-ui-card p-2 rounded-2xl shadow-2xl border border-brand-light transform hover:rotate-0 transition-transform duration-500">
-                        <div class="bg-ui-dark rounded-xl h-64 lg:h-80 flex items-center justify-center overflow-hidden relative">
-                             <!-- Grid Pattern -->
-                             <div class="absolute inset-0 opacity-10" style="background-image: linear-gradient(rgba(225,165,73,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(225,165,73,0.3) 1px, transparent 1px); background-size: 20px 20px;"></div>
-                            
-                            <div class="grid grid-cols-2 gap-4 p-6 w-full h-full opacity-80 relative z-10">
-                                <div class="bg-brand-medium rounded-lg border border-brand-light"></div>
-                                <div class="bg-ui-card rounded-lg border border-brand-light"></div>
-                                <div class="bg-brand-gold/20 rounded-lg border border-brand-gold"></div>
-                                <div class="bg-brand-medium rounded-lg border border-brand-light"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Content -->
-                <div class="w-full lg:w-1/2 order-1 lg:order-2">
-                    <div class="inline-block px-4 py-1.5 bg-brand-medium text-brand-gold font-semibold rounded-full text-sm mb-4 border border-brand-light">Configurable Architecture</div>
-                    <h2 class="text-3xl md:text-4xl font-bold text-ui-text-primary mb-6">SME Growth for Target Objectives</h2>
-                    <p class="text-lg text-ui-text-secondary leading-relaxed mb-6">
-                        The fully configurable architecture allows every module, output, and criterion to be tailored, ensuring the SME's growth journey aligns precisely with the chosen lens.
-                    </p>
-                    <ul class="space-y-3">
-                        <li class="flex items-center gap-3 text-ui-text-secondary">
-                            <i class="fa-solid fa-circle-check text-brand-gold"></i> Tailored Modules
-                        </li>
-                        <li class="flex items-center gap-3 text-ui-text-secondary">
-                            <i class="fa-solid fa-circle-check text-brand-gold"></i> Output Customization
-                        </li>
-                        <li class="flex items-center gap-3 text-ui-text-secondary">
-                            <i class="fa-solid fa-circle-check text-brand-gold"></i> Objective Alignment
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Feature Zig-Zag Section 2 -->
-    <section class="py-16 md:py-20 bg-ui-dark">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
-                <div class="w-full lg:w-1/2">
-                    <div class="inline-block px-4 py-1.5 bg-ui-icon-gray/30 text-ui-text-primary font-semibold rounded-full text-sm mb-4 border border-ui-icon-gray">Human-in-the-Loop</div>
-                    <h2 class="text-3xl md:text-4xl font-bold text-ui-text-primary mb-6">A New Transformation Workforce</h2>
-                    <p class="text-lg text-ui-text-secondary leading-relaxed mb-6">
-                        A field-based cadre of tech-enabled and technically capacitated transformation professionals is mobilized and ready to scale.
-                    </p>
-                    <div class="flex gap-4">
-                        <div class="bg-ui-card p-4 rounded-lg border border-brand-light text-center w-1/2">
-                            <div class="text-2xl font-bold text-brand-gold mb-1">Tech-Enabled</div>
-                            <div class="text-sm text-ui-text-secondary">Professionals</div>
-                        </div>
-                        <div class="bg-ui-card p-4 rounded-lg border border-brand-light text-center w-1/2">
-                            <div class="text-2xl font-bold text-brand-gold mb-1">Field-Based</div>
-                            <div class="text-sm text-ui-text-secondary">Deployments</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="w-full lg:w-1/2 relative">
-                    <!-- Abstract Visual -->
-                    <div class="brand-gradient-bg rounded-2xl p-8 shadow-2xl text-white relative overflow-hidden border border-brand-light">
-                        <div class="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-white opacity-5 rounded-full"></div>
-                        <div class="relative z-10">
-                            <div class="flex items-center gap-4 mb-8">
-                                <div class="w-12 h-12 rounded-full bg-ui-card border border-brand-light flex items-center justify-center text-brand-gold">
-                                    <i class="fa-solid fa-user-tie"></i>
-                                </div>
-                                <div>
-                                    <div class="font-bold text-lg text-ui-text-primary">Transformation Expert</div>
-                                    <div class="text-sm text-ui-text-secondary">Active in Field</div>
-                                </div>
-                            </div>
-                            <div class="space-y-3">
-                                <div class="h-2 bg-brand-light rounded w-3/4"></div>
-                                <div class="h-2 bg-brand-light rounded w-1/2"></div>
-                            </div>
-                            <div class="mt-8 pt-6 border-t border-brand-light flex justify-between items-center">
-                                <span class="text-sm font-medium text-ui-text-secondary">Status:</span>
-                                <span class="px-3 py-1 bg-brand-gold/20 text-brand-gold text-xs rounded-full border border-brand-gold/30">Mobilized</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Approach Section (Timeline/Steps) -->
-    <section class="py-16 md:py-24 bg-brand-dark text-white relative" id="approach">
-        <!-- Background Grid -->
-        <div class="absolute inset-0 opacity-5" style="background-image: radial-gradient(#E1A549 1px, transparent 1px); background-size: 30px 30px;"></div>
-        
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-12 md:mb-16">
-                <span class="text-brand-gold font-bold tracking-wider uppercase text-sm">Our Approach</span>
-                <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-4 font-serif text-ui-text-primary">How we deliver transformation at scale</h2>
-                <p class="text-ui-text-secondary max-w-2xl mx-auto">Blending AI intelligence and human practitioner insights to create data-driven and grounded reality.</p>
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-ui-text-primary mb-6">What RootRise Delivers</h2>
+                <p class="text-lg text-ui-text-secondary/90 max-w-2xl mx-auto">Comprehensive transformation solutions that drive sustainable growth and investment readiness through intelligent infrastructure.</p>
             </div>
 
-            <div class="grid md:grid-cols-4 gap-8 relative">
-                <!-- Connector Line (Desktop) -->
-                <div class="hidden md:block absolute top-8 left-0 w-full h-px bg-brand-medium z-0"></div>
-
-                <!-- Steps -->
-                <div class="relative z-10 text-center group">
-                    <div class="w-16 h-16 mx-auto bg-ui-dark border-2 border-brand-light rounded-full flex items-center justify-center text-2xl mb-6 group-hover:border-brand-gold group-hover:text-brand-gold transition-all duration-300 shadow-lg shadow-black/30 relative z-10">
-                        <i class="fa-solid fa-fingerprint"></i>
-                    </div>
-                    <h3 class="text-lg font-bold mb-2 text-ui-text-primary">Smart Data Capture</h3>
-                    <p class="text-xs font-mono text-brand-gold mb-2 opacity-80">(Human - AI)</p>
-                    <p class="text-sm text-ui-text-secondary">Comprehensive business assessments using advanced algorithms.</p>
-                </div>
-
-                <div class="relative z-10 text-center group">
-                    <div class="w-16 h-16 mx-auto bg-ui-dark border-2 border-brand-light rounded-full flex items-center justify-center text-2xl mb-6 group-hover:border-brand-gold group-hover:text-brand-gold transition-all duration-300 shadow-lg shadow-black/30 relative z-10">
-                        <i class="fa-solid fa-microchip"></i>
-                    </div>
-                    <h3 class="text-lg font-bold mb-2 text-ui-text-primary">Intelligent Processing</h3>
-                    <p class="text-xs font-mono text-brand-gold mb-2 opacity-80">(AI)</p>
-                    <p class="text-sm text-ui-text-secondary">Fast-track transformation with actionable insights delivered in days.</p>
-                </div>
-
-                <div class="relative z-10 text-center group">
-                    <div class="w-16 h-16 mx-auto bg-ui-dark border-2 border-brand-light rounded-full flex items-center justify-center text-2xl mb-6 group-hover:border-brand-gold group-hover:text-brand-gold transition-all duration-300 shadow-lg shadow-black/30 relative z-10">
-                        <i class="fa-solid fa-user-check"></i>
-                    </div>
-                    <h3 class="text-lg font-bold mb-2 text-ui-text-primary">Advisor Validation</h3>
-                    <p class="text-xs font-mono text-brand-gold mb-2 opacity-80">(Human – AI Loop)</p>
-                    <p class="text-sm text-ui-text-secondary">Expert refinement to ensure grounded reality.</p>
-                </div>
-
-                <div class="relative z-10 text-center group">
-                    <div class="w-16 h-16 mx-auto bg-ui-dark border-2 border-brand-light rounded-full flex items-center justify-center text-2xl mb-6 group-hover:border-brand-gold group-hover:text-brand-gold transition-all duration-300 shadow-lg shadow-black/30 relative z-10">
-                        <i class="fa-solid fa-chart-line"></i>
-                    </div>
-                    <h3 class="text-lg font-bold mb-2 text-ui-text-primary">Actionable Outputs</h3>
-                    <p class="text-xs font-mono text-brand-gold mb-2 opacity-80">(AI - Human)</p>
-                    <p class="text-sm text-ui-text-secondary">Data-driven progress tracking and growth pathways.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Mission Section (Interface Dark) -->
-    <section class="py-16 md:py-24 bg-ui-dark" id="mission">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold text-ui-text-primary mb-2 font-serif">What Drives Us</h2>
-            <p class="text-lg md:text-xl text-brand-gold font-medium mb-10">Our mission to transform SME growth through innovation</p>
-            
-            <div class="prose prose-lg mx-auto text-ui-text-secondary">
-                <p class="mb-6">
-                    <span class="font-bold text-ui-text-primary">DEVONEERS</span> is a purpose-driven organization committed to enabling inclusive economic growth by tackling the persistent barriers that constrain SME transformation in fragile and transitioning economies.
-                </p>
-                <blockquote class="p-6 bg-ui-card border-l-4 border-brand-gold italic text-ui-text-primary font-serif text-lg md:text-xl my-8 rounded-r-lg">
-                    "By reframing SME upgrading as a data- and AI-powered process, transformation can become faster, measurable, and affordable at scale, creating a blueprint for replication worldwide."
-                </blockquote>
-            </div>
-        </div>
-    </section>
-
-    <!-- Configuration Configurator CTA -->
-    <section class="py-16 md:py-20 bg-brand-dark border-t border-brand-medium">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-ui-card rounded-3xl p-8 md:p-12 shadow-2xl flex flex-col lg:flex-row items-center gap-12 relative overflow-hidden border border-brand-medium">
-                <!-- Decor -->
-                <div class="absolute top-0 right-0 w-64 h-64 bg-brand-light/20 rounded-full -mr-32 -mt-32 z-0 blur-3xl"></div>
-
-                <div class="lg:w-1/2 relative z-10">
-                    <h2 class="text-3xl font-bold text-ui-text-primary mb-4">Let's Transform SMEs Together</h2>
-                    <p class="text-ui-text-secondary mb-6 leading-relaxed">
-                        RootRise comes with a strong standard configuration based on our SME transformation work. The same engine can be re-oriented around green financing, export, innovation, jobs, or any other focus.
-                    </p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-ui-dark border border-brand-light text-ui-text-secondary text-sm rounded-full">Green Financing</span>
-                        <span class="px-3 py-1 bg-ui-dark border border-brand-light text-ui-text-secondary text-sm rounded-full">Export</span>
-                        <span class="px-3 py-1 bg-ui-dark border border-brand-light text-ui-text-secondary text-sm rounded-full">Innovation</span>
-                    </div>
-                </div>
-                <div class="lg:w-1/2 w-full relative z-10">
-                    <div class="bg-brand-dark rounded-xl p-8 text-center border border-brand-light/50">
-                        <h3 class="text-2xl font-bold mb-2 text-ui-text-primary">Ready to Transform?</h3>
-                        <p class="text-ui-text-secondary mb-8">Join hundreds of SMEs that have accelerated their growth.</p>
-                        
-                        <div class="flex flex-col sm:flex-row gap-4 justify-center" id="start">
-                            <button class="w-full sm:w-auto bg-brand-gold hover:bg-yellow-500 text-ui-dark font-bold py-4 px-8 rounded-lg shadow-lg transition-all transform hover:scale-105">
-                                Start Your Diagnostic
-                            </button>
-                            <button class="w-full sm:w-auto bg-transparent border border-ui-text-secondary hover:border-ui-text-primary text-ui-text-primary font-bold py-4 px-8 rounded-lg transition-all">
-                                Contact Sales
-                            </button>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="rootrise-card-modern rounded-2xl p-8 group relative overflow-hidden">
+                    <!-- Hover Gradient Overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-br from-brand-gold/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <div class="relative z-10">
+                        <div class="w-14 h-14 bg-ui-icon-gold text-ui-dark rounded-xl flex items-center justify-center text-2xl mb-6 icon-glow-gold transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 group-hover:bg-brand-gold">
+                            <i class="fa-solid fa-arrow-trend-up"></i>
                         </div>
+                        <h3 class="text-xl font-bold text-ui-text-primary mb-4 group-hover:text-brand-gold transition-colors duration-300">Sustained Growth Journeys</h3>
+                        <p class="text-ui-text-secondary leading-relaxed text-[15px] group-hover:text-white/90 transition-colors">
+                            SMEs move beyond reactive problem-solving into structured growth, with embedded transformation associates inside the business, supported by senior experts and an AI backbone.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="rootrise-card-modern rounded-2xl p-8 group relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-brand-light/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <div class="relative z-10">
+                        <div class="w-14 h-14 bg-ui-icon-gray text-ui-text-primary rounded-xl flex items-center justify-center text-2xl mb-6 icon-glow-gray transition-all duration-500 group-hover:scale-110 group-hover:-rotate-3 group-hover:bg-brand-light group-hover:text-white">
+                            <i class="fa-solid fa-cubes-stacked"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-ui-text-primary mb-4 group-hover:text-brand-gold transition-colors duration-300">Structured & Digitized Systems</h3>
+                        <p class="text-ui-text-secondary leading-relaxed text-[15px] group-hover:text-white/90 transition-colors">
+                            Businesses adopt structured and digitized systems that drive operational consistency, higher quality, and stronger readiness for investment and export capability.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="rootrise-card-modern rounded-2xl p-8 group relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-brand-gold/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <div class="relative z-10">
+                        <div class="w-14 h-14 bg-ui-icon-gold text-ui-dark rounded-xl flex items-center justify-center text-2xl mb-6 icon-glow-gold transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 group-hover:bg-brand-gold">
+                            <i class="fa-solid fa-file-contract"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-ui-text-primary mb-4 group-hover:text-brand-gold transition-colors duration-300">Credible Investment Cases</h3>
+                        <p class="text-ui-text-secondary leading-relaxed text-[15px] group-hover:text-white/90 transition-colors">
+                            SMEs build robust, AI-enabled analysis, building evidence-based investment cases and make confident financing decisions with clear returns and managed risks.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="rootrise-card-modern rounded-2xl p-8 group relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-brand-light/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <div class="relative z-10">
+                        <div class="w-14 h-14 bg-ui-icon-gray text-ui-text-primary rounded-xl flex items-center justify-center text-2xl mb-6 icon-glow-gray transition-all duration-500 group-hover:scale-110 group-hover:-rotate-3 group-hover:bg-brand-light group-hover:text-white">
+                            <i class="fa-solid fa-bullseye"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-ui-text-primary mb-4 group-hover:text-brand-gold transition-colors duration-300">SME Growth for Target Objectives</h3>
+                        <p class="text-ui-text-secondary leading-relaxed text-[15px] group-hover:text-white/90 transition-colors">
+                            The fully configurable architecture allows every module, output, and criterion to be tailored, ensuring the SME's growth journey aligns precisely with the chosen lens and transformation objectives.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="rootrise-card-modern rounded-2xl p-8 group relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-brand-gold/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <div class="relative z-10">
+                        <div class="w-14 h-14 bg-ui-icon-gold text-ui-dark rounded-xl flex items-center justify-center text-2xl mb-6 icon-glow-gold transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 group-hover:bg-brand-gold">
+                            <i class="fa-solid fa-users-gear"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-ui-text-primary mb-4 group-hover:text-brand-gold transition-colors duration-300">A New Transformation Workforce</h3>
+                        <p class="text-ui-text-secondary leading-relaxed text-[15px] group-hover:text-white/90 transition-colors">
+                            A field-based cadre of tech-enabled and technically capacitated transformation professionals is mobilized and ready to scale, pioneering a new discipline of SME expertise.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="rootrise-card-modern rounded-2xl p-8 group relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-brand-light/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <div class="relative z-10">
+                        <div class="w-14 h-14 bg-ui-icon-gray text-ui-text-primary rounded-xl flex items-center justify-center text-2xl mb-6 icon-glow-gray transition-all duration-500 group-hover:scale-110 group-hover:-rotate-3 group-hover:bg-brand-light group-hover:text-white">
+                            <i class="fa-solid fa-hand-holding-dollar"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-ui-text-primary mb-4 group-hover:text-brand-gold transition-colors duration-300">Investor Confidence & Access</h3>
+                        <p class="text-ui-text-secondary leading-relaxed text-[15px] group-hover:text-white/90 transition-colors">
+                            Investors gain early access to a pipeline of qualified, investment-ready SMEs and engage in transparent and data-driven real-deal conversations.
+                        </p>
                     </div>
                 </div>
             </div>
