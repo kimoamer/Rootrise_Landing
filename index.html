@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RootRise | AI Infrastructure for SME Intelligence</title>
+    <meta name="description" content="RootRise - AI Infrastructure for SME Intelligence. A configurable diagnostic, planning, and implementation engine.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // BRAND COLORS
+                        brand: {
+                            gold: '#E1A549',       // Primary Brand
+                            dark: '#132938',       // Brand Background
+                            medium: '#23445B',     // Brand Accent
+                            light: '#2D5068',      // Brand Highlight
+                        },
+                        // INTERFACE COLORS
+                        ui: {
+                            dark: '#18243D',       // Sidebar/Nav/Base
+                            card: '#213552',       // Card BG
+                            text: {
+                                primary: '#FFFFFF',
+                                secondary: '#9CA6BA',
+                            },
+                            icon: {
+                                gold: '#B3A068',   // Premium Icon BG
+                                gray: '#5F6A73',   // Standard Icon BG
+                            }
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Crimson Text', 'serif'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'shimmer': 'shimmer 2s infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        shimmer: {
+                            '100%': { transform: 'translateX(100%)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Base Styles */
+        body {
+            background-color: #18243D; /* UI Dark */
+            color: #9CA6BA; /* Text Secondary */
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            color: #FFFFFF; /* Text Primary */
+        }
+
+        /* Custom Gradients */
+        .brand-gradient-text {
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-image: linear-gradient(90deg, #E1A549 0%, #F5D76E 100%);
+        }
+        
+        .brand-gradient-bg {
+            background: linear-gradient(90deg, #132938 0%, #23445B 50%, #2D5068 100%);
+        }
+
+        /* Card Styles */
+        .rootrise-card {
+            background-color: #213552; /* UI Card BG */
+            border: 1px solid rgba(45, 80, 104, 0.5); /* Brand Highlight with opacity */
+            transition: all 0.3s ease;
+        }
+        .rootrise-card:hover {
+            border-color: #E1A549; /* Gold on hover */
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(19, 41, 56, 0.5);
+        }
+
+        /* Glassmorphism for Floating Elements */
+        .glass-panel {
+            background: rgba(33, 53, 82, 0.7); /* UI Card with opacity */
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(225, 165, 73, 0.2); /* Subtle Gold border */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Chart Specifics */
+        .chart-container {
+            filter: drop-shadow(0 0 15px rgba(225, 165, 73, 0.15));
+        }
+        
+        /* Mobile Menu Transition */
+        #mobile-menu {
+            transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+        #mobile-menu.open {
+            max-height: 400px;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased overflow-x-hidden selection:bg-brand-gold selection:text-brand-dark">
+
+    <!-- Navigation (Interface Dark #18243D) -->
+    <nav class="fixed w-full bg-ui-dark/95 backdrop-blur-md z-50 border-b border-brand-light/30 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-brand-dark rounded-lg flex items-center justify-center text-brand-gold text-xl font-bold border border-brand-medium">
+                        <i class="fa-solid fa-seedling"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-2xl font-bold text-brand-gold tracking-tight" style="color: #E1A549;">RootRise</span>
+                        <span class="text-[0.65rem] uppercase tracking-wider text-ui-text-secondary font-semibold">by DEVONEERS</span>
+                    </div>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#features" class="text-ui-text-primary hover:text-brand-gold font-medium transition-colors">Platform</a>
+                    <a href="#approach" class="text-ui-text-primary hover:text-brand-gold font-medium transition-colors">Our Approach</a>
+                    <a href="#mission" class="text-ui-text-primary hover:text-brand-gold font-medium transition-colors">Mission</a>
+                </div>
+
+                <!-- CTA Buttons -->
+                <div class="hidden md:flex items-center gap-4">
+                    <a href="#" class="text-ui-text-primary font-semibold hover:text-brand-gold transition-colors">Log In</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-ui-text-primary hover:text-brand-gold p-2 focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="md:hidden bg-ui-dark border-b border-brand-light/30">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="#features" class="block px-3 py-3 rounded-md text-base font-medium text-ui-text-primary hover:bg-brand-light/20 hover:text-brand-gold">Platform</a>
+                <a href="#approach" class="block px-3 py-3 rounded-md text-base font-medium text-ui-text-primary hover:bg-brand-light/20 hover:text-brand-gold">Our Approach</a>
+                <a href="#mission" class="block px-3 py-3 rounded-md text-base font-medium text-ui-text-primary hover:bg-brand-light/20 hover:text-brand-gold">Mission</a>
+                <div class="pt-4 mt-4 border-t border-brand-light/30 flex flex-col gap-3">
+                    <a href="#" class="block w-full text-center px-4 py-3 text-ui-text-primary font-semibold border border-brand-light/50 rounded-lg hover:bg-brand-light/10">Log In</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section (Brand Background Dark Blue #132938) -->
+    <header class="relative pt-28 pb-16 lg:pt-40 lg:pb-32 overflow-hidden flex items-center min-h-[90vh] bg-brand-dark">
+        
+        <!-- Background Video -->
+        <div class="absolute inset-0 w-full h-full z-0">
+            <video class="w-full h-full object-cover opacity-60 mix-blend-overlay" autoplay loop muted playsinline>
+                <source src="https://cdn.pixabay.com/video/2023/01/30/148596-794221551_large.mp4" type="video/mp4">
+            </video>
+            <!-- Dark Blue Overlay (Brand Background) -->
+            <div class="absolute inset-0 bg-brand-dark/90"></div>
+            <div class="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r from-brand-dark via-brand-dark/95 to-brand-medium/50"></div>
+        </div>
+
+        <!-- LIVE JS Animated Growth Chart Overlay (Gold) -->
+        <div class="absolute bottom-0 left-0 w-full h-[40vh] md:h-[60vh] z-0 pointer-events-none chart-container">
+            <svg id="liveChart" class="w-full h-full" viewBox="0 0 1000 300" preserveAspectRatio="none">
+                <defs>
+                    <linearGradient id="growthGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" style="stop-color:#E1A549;stop-opacity:0.2" />
+                        <stop offset="100%" style="stop-color:#E1A549;stop-opacity:0" />
+                    </linearGradient>
+                    <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" style="stop-color:#E1A549;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#F5D76E;stop-opacity:1" />
+                    </linearGradient>
+                    <filter id="glow">
+                        <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                        <feMerge>
+                            <feMergeNode in="coloredBlur"/>
+                            <feMergeNode in="SourceGraphic"/>
+                        </feMerge>
+                    </filter>
+                </defs>
+                <path id="areaPath" d="" fill="url(#growthGradient)"></path>
+                <path id="linePath" d="" fill="none" stroke="url(#lineGradient)" stroke-width="3" filter="url(#glow)"></path>
+                <circle id="pulseDot" r="4" fill="#FFFFFF" filter="url(#glow)">
+                     <animateMotion id="pulseAnim" dur="5s" repeatCount="indefinite" rotate="auto">
+                        <mpath href="#linePath"/>
+                    </animateMotion>
+                </circle>
+                <circle id="endCursor" r="6" fill="#E1A549" stroke="#FFFFFF" stroke-width="2"></circle>
+            </svg>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+                <!-- Hero Content -->
+                <div class="max-w-2xl text-center lg:text-left mx-auto lg:mx-0">
+                    <!-- Badge using Brand Highlight & Gold Text -->
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-light/40 border border-brand-gold/30 text-brand-gold text-sm font-semibold mb-6 backdrop-blur-sm shadow-[0_0_15px_rgba(225,165,73,0.15)]">
+                        <span class="relative flex h-2 w-2">
+                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-gold opacity-75"></span>
+                          <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-gold"></span>
+                        </span>
+                        System Active
+                    </div>
+                    
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-ui-text-primary leading-[1.1] mb-6 drop-shadow-xl">
+                        AI Infrastructure for <br class="hidden sm:block"/> <span class="brand-gradient-text">SME Intelligence</span>
+                    </h1>
+                    
+                    <p class="text-lg sm:text-xl text-ui-text-secondary mb-4 leading-relaxed font-light">
+                        A configurable diagnostic, planning, and implementation engine built for SMEs, investors, donors, accelerators, and governments.
+                    </p>
+                    
+                    <div class="h-px w-24 bg-brand-gold/50 mb-6 mx-auto lg:mx-0"></div>
+
+                    <p class="text-base text-ui-text-secondary mb-8 leading-relaxed opacity-80">
+                        RootRise adapts to different mandates and objectives, from export access to climate finance, from innovation to operational upgrading.
+                    </p>
+                    
+                    <!-- Hero CTA (Single Learn More Button) -->
+                    <div class="flex flex-col sm:flex-row gap-4 items-center lg:items-start justify-center lg:justify-start">
+                        <a href="#features" class="w-full sm:w-auto group relative bg-brand-gold hover:bg-[#c9903b] text-ui-dark px-10 py-4 rounded-lg font-bold text-lg transition-all hover:shadow-[0_0_20px_rgba(225,165,73,0.4)] hover:scale-105 flex items-center justify-center gap-3 overflow-hidden">
+                            <span class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:animate-shimmer"></span>
+                            Learn More <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+
+                    <p class="text-sm text-ui-text-secondary mt-6 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 sm:gap-6 opacity-70">
+                        <span class="flex items-center gap-2"><i class="fa-solid fa-shield-halved text-brand-gold"></i> Enterprise Grade</span>
+                        <span class="flex items-center gap-2"><i class="fa-solid fa-bolt text-brand-gold"></i> Instant Analysis</span>
+                    </p>
+                </div>
+
+                <!-- Hero Visual (HUD Elements) - Hidden on Mobile to reduce clutter -->
+                <div class="relative lg:ml-auto w-full max-w-lg lg:max-w-none hidden lg:block perspective-1000">
+                    <!-- Floating Element 1: Growth Rate -->
+                    <div class="absolute top-0 right-10 glass-panel p-6 rounded-2xl animate-float hover:border-brand-gold transition-colors duration-300">
+                        <div class="absolute -top-1 -right-1 w-3 h-3 bg-brand-gold rounded-full animate-ping"></div>
+                        <div class="flex items-center gap-3 mb-2">
+                            <div class="w-10 h-10 rounded-full bg-brand-gold/20 flex items-center justify-center text-brand-gold border border-brand-gold/30">
+                                <i class="fa-solid fa-rocket"></i>
+                            </div>
+                            <div class="text-sm font-bold text-ui-text-primary tracking-wide">GROWTH RATE</div>
+                        </div>
+                        <div class="text-3xl font-bold text-ui-text-primary font-mono">+240%</div>
+                        <div class="w-full bg-brand-medium h-1 mt-2 rounded-full overflow-hidden">
+                            <div class="bg-brand-gold h-full w-3/4 animate-[width_2s_ease-out]"></div>
+                        </div>
+                        <p class="text-[10px] text-brand-gold mt-1 uppercase tracking-wider">Year over Year</p>
+                    </div>
+
+                    <!-- Floating Element 2: Status -->
+                    <div class="absolute top-72 right-32 glass-panel p-4 rounded-lg animate-float border-l-4 border-l-brand-gold" style="animation-delay: 2s;">
+                         <div class="flex items-center gap-3">
+                            <div class="h-10 w-10 rounded bg-brand-medium flex items-center justify-center text-ui-text-primary border border-brand-light">
+                                <i class="fa-solid fa-check-double"></i>
+                            </div>
+                            <div>
+                                <div class="text-ui-text-primary font-bold text-sm tracking-wide">READINESS SCORE</div>
+                                <div class="text-brand-gold text-lg font-mono font-bold">98<span class="text-sm text-ui-text-secondary">/100</span></div>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Social Proof Strip (Interface Dark #18243D) -->
+    <section class="border-y border-brand-medium bg-ui-dark py-10">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-sm font-semibold text-ui-text-secondary uppercase tracking-widest mb-6">Trusted by Ecosystem Leaders</p>
+            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-50 grayscale hover:grayscale-0 transition-all duration-500 hover:opacity-100">
+                <div class="text-lg md:text-xl font-serif font-bold text-ui-text-secondary flex items-center gap-2 mb-4 md:mb-0"><i class="fa-solid fa-building-columns"></i> GlobalBank</div>
+                <div class="text-lg md:text-xl font-bold text-ui-text-secondary flex items-center gap-2 mb-4 md:mb-0"><i class="fa-solid fa-leaf"></i> AgriFund</div>
+                <div class="text-lg md:text-xl font-bold text-ui-text-secondary flex items-center gap-2 mb-4 md:mb-0"><i class="fa-solid fa-hand-holding-dollar"></i> SME Ventures</div>
+                <div class="text-lg md:text-xl font-bold text-ui-text-secondary flex items-center gap-2"><i class="fa-solid fa-globe"></i> TradeCorp</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What RootRise Delivers (Card BG #213552) -->
+    <section class="py-16 md:py-24 bg-ui-dark" id="features">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12 md:mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-ui-text-primary mb-4">What RootRise Delivers</h2>
+                <p class="text-lg text-ui-text-secondary">Comprehensive transformation solutions that drive sustainable growth and investment readiness.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Card 1 (Gold Icon) -->
+                <div class="rootrise-card rounded-2xl p-8 group">
+                    <div class="w-14 h-14 bg-ui-icon-gold rounded-xl flex items-center justify-center text-ui-dark text-2xl mb-6 shadow-lg shadow-black/20">
+                        <i class="fa-solid fa-arrow-trend-up"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-ui-text-primary mb-3 group-hover:text-brand-gold transition-colors">Sustained Growth Journeys</h3>
+                    <p class="text-ui-text-secondary leading-relaxed">
+                        SMEs move beyond reactive problem-solving into structured growth, with embedded transformation associates inside the business.
+                    </p>
+                </div>
+
+                <!-- Card 2 (Standard Icon - Cool Gray) -->
+                <div class="rootrise-card rounded-2xl p-8 group">
+                    <div class="w-14 h-14 bg-ui-icon-gray rounded-xl flex items-center justify-center text-ui-text-primary text-2xl mb-6 shadow-lg shadow-black/20">
+                        <i class="fa-solid fa-cubes-stacked"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-ui-text-primary mb-3 group-hover:text-brand-gold transition-colors">Structured & Digitized Systems</h3>
+                    <p class="text-ui-text-secondary leading-relaxed">
+                        Businesses adopt structured and digitized systems that drive operational consistency, higher quality, and stronger readiness.
+                    </p>
+                </div>
+
+                <!-- Card 3 (Gold Icon) -->
+                <div class="rootrise-card rounded-2xl p-8 group">
+                    <div class="w-14 h-14 bg-ui-icon-gold rounded-xl flex items-center justify-center text-ui-dark text-2xl mb-6 shadow-lg shadow-black/20">
+                        <i class="fa-solid fa-file-contract"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-ui-text-primary mb-3 group-hover:text-brand-gold transition-colors">Credible Investment Cases</h3>
+                    <p class="text-ui-text-secondary leading-relaxed">
+                        SMEs build robust, AI-enabled analysis, building evidence-based investment cases and make confident financing decisions.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature Zig-Zag Section 1 -->
+    <section class="py-16 md:py-20 bg-brand-dark overflow-hidden relative border-t border-brand-medium">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
+                <!-- Visual -->
+                <div class="w-full lg:w-1/2 relative order-2 lg:order-1">
+                    <div class="relative bg-ui-card p-2 rounded-2xl shadow-2xl border border-brand-light transform hover:rotate-0 transition-transform duration-500">
+                        <div class="bg-ui-dark rounded-xl h-64 lg:h-80 flex items-center justify-center overflow-hidden relative">
+                             <!-- Grid Pattern -->
+                             <div class="absolute inset-0 opacity-10" style="background-image: linear-gradient(rgba(225,165,73,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(225,165,73,0.3) 1px, transparent 1px); background-size: 20px 20px;"></div>
+                            
+                            <div class="grid grid-cols-2 gap-4 p-6 w-full h-full opacity-80 relative z-10">
+                                <div class="bg-brand-medium rounded-lg border border-brand-light"></div>
+                                <div class="bg-ui-card rounded-lg border border-brand-light"></div>
+                                <div class="bg-brand-gold/20 rounded-lg border border-brand-gold"></div>
+                                <div class="bg-brand-medium rounded-lg border border-brand-light"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Content -->
+                <div class="w-full lg:w-1/2 order-1 lg:order-2">
+                    <div class="inline-block px-4 py-1.5 bg-brand-medium text-brand-gold font-semibold rounded-full text-sm mb-4 border border-brand-light">Configurable Architecture</div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-ui-text-primary mb-6">SME Growth for Target Objectives</h2>
+                    <p class="text-lg text-ui-text-secondary leading-relaxed mb-6">
+                        The fully configurable architecture allows every module, output, and criterion to be tailored, ensuring the SME's growth journey aligns precisely with the chosen lens.
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-center gap-3 text-ui-text-secondary">
+                            <i class="fa-solid fa-circle-check text-brand-gold"></i> Tailored Modules
+                        </li>
+                        <li class="flex items-center gap-3 text-ui-text-secondary">
+                            <i class="fa-solid fa-circle-check text-brand-gold"></i> Output Customization
+                        </li>
+                        <li class="flex items-center gap-3 text-ui-text-secondary">
+                            <i class="fa-solid fa-circle-check text-brand-gold"></i> Objective Alignment
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature Zig-Zag Section 2 -->
+    <section class="py-16 md:py-20 bg-ui-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
+                <div class="w-full lg:w-1/2">
+                    <div class="inline-block px-4 py-1.5 bg-ui-icon-gray/30 text-ui-text-primary font-semibold rounded-full text-sm mb-4 border border-ui-icon-gray">Human-in-the-Loop</div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-ui-text-primary mb-6">A New Transformation Workforce</h2>
+                    <p class="text-lg text-ui-text-secondary leading-relaxed mb-6">
+                        A field-based cadre of tech-enabled and technically capacitated transformation professionals is mobilized and ready to scale.
+                    </p>
+                    <div class="flex gap-4">
+                        <div class="bg-ui-card p-4 rounded-lg border border-brand-light text-center w-1/2">
+                            <div class="text-2xl font-bold text-brand-gold mb-1">Tech-Enabled</div>
+                            <div class="text-sm text-ui-text-secondary">Professionals</div>
+                        </div>
+                        <div class="bg-ui-card p-4 rounded-lg border border-brand-light text-center w-1/2">
+                            <div class="text-2xl font-bold text-brand-gold mb-1">Field-Based</div>
+                            <div class="text-sm text-ui-text-secondary">Deployments</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full lg:w-1/2 relative">
+                    <!-- Abstract Visual -->
+                    <div class="brand-gradient-bg rounded-2xl p-8 shadow-2xl text-white relative overflow-hidden border border-brand-light">
+                        <div class="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-white opacity-5 rounded-full"></div>
+                        <div class="relative z-10">
+                            <div class="flex items-center gap-4 mb-8">
+                                <div class="w-12 h-12 rounded-full bg-ui-card border border-brand-light flex items-center justify-center text-brand-gold">
+                                    <i class="fa-solid fa-user-tie"></i>
+                                </div>
+                                <div>
+                                    <div class="font-bold text-lg text-ui-text-primary">Transformation Expert</div>
+                                    <div class="text-sm text-ui-text-secondary">Active in Field</div>
+                                </div>
+                            </div>
+                            <div class="space-y-3">
+                                <div class="h-2 bg-brand-light rounded w-3/4"></div>
+                                <div class="h-2 bg-brand-light rounded w-1/2"></div>
+                            </div>
+                            <div class="mt-8 pt-6 border-t border-brand-light flex justify-between items-center">
+                                <span class="text-sm font-medium text-ui-text-secondary">Status:</span>
+                                <span class="px-3 py-1 bg-brand-gold/20 text-brand-gold text-xs rounded-full border border-brand-gold/30">Mobilized</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Approach Section (Timeline/Steps) -->
+    <section class="py-16 md:py-24 bg-brand-dark text-white relative" id="approach">
+        <!-- Background Grid -->
+        <div class="absolute inset-0 opacity-5" style="background-image: radial-gradient(#E1A549 1px, transparent 1px); background-size: 30px 30px;"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-12 md:mb-16">
+                <span class="text-brand-gold font-bold tracking-wider uppercase text-sm">Our Approach</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-4 font-serif text-ui-text-primary">How we deliver transformation at scale</h2>
+                <p class="text-ui-text-secondary max-w-2xl mx-auto">Blending AI intelligence and human practitioner insights to create data-driven and grounded reality.</p>
+            </div>
+
+            <div class="grid md:grid-cols-4 gap-8 relative">
+                <!-- Connector Line (Desktop) -->
+                <div class="hidden md:block absolute top-8 left-0 w-full h-px bg-brand-medium z-0"></div>
+
+                <!-- Steps -->
+                <div class="relative z-10 text-center group">
+                    <div class="w-16 h-16 mx-auto bg-ui-dark border-2 border-brand-light rounded-full flex items-center justify-center text-2xl mb-6 group-hover:border-brand-gold group-hover:text-brand-gold transition-all duration-300 shadow-lg shadow-black/30 relative z-10">
+                        <i class="fa-solid fa-fingerprint"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2 text-ui-text-primary">Smart Data Capture</h3>
+                    <p class="text-xs font-mono text-brand-gold mb-2 opacity-80">(Human - AI)</p>
+                    <p class="text-sm text-ui-text-secondary">Comprehensive business assessments using advanced algorithms.</p>
+                </div>
+
+                <div class="relative z-10 text-center group">
+                    <div class="w-16 h-16 mx-auto bg-ui-dark border-2 border-brand-light rounded-full flex items-center justify-center text-2xl mb-6 group-hover:border-brand-gold group-hover:text-brand-gold transition-all duration-300 shadow-lg shadow-black/30 relative z-10">
+                        <i class="fa-solid fa-microchip"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2 text-ui-text-primary">Intelligent Processing</h3>
+                    <p class="text-xs font-mono text-brand-gold mb-2 opacity-80">(AI)</p>
+                    <p class="text-sm text-ui-text-secondary">Fast-track transformation with actionable insights delivered in days.</p>
+                </div>
+
+                <div class="relative z-10 text-center group">
+                    <div class="w-16 h-16 mx-auto bg-ui-dark border-2 border-brand-light rounded-full flex items-center justify-center text-2xl mb-6 group-hover:border-brand-gold group-hover:text-brand-gold transition-all duration-300 shadow-lg shadow-black/30 relative z-10">
+                        <i class="fa-solid fa-user-check"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2 text-ui-text-primary">Advisor Validation</h3>
+                    <p class="text-xs font-mono text-brand-gold mb-2 opacity-80">(Human – AI Loop)</p>
+                    <p class="text-sm text-ui-text-secondary">Expert refinement to ensure grounded reality.</p>
+                </div>
+
+                <div class="relative z-10 text-center group">
+                    <div class="w-16 h-16 mx-auto bg-ui-dark border-2 border-brand-light rounded-full flex items-center justify-center text-2xl mb-6 group-hover:border-brand-gold group-hover:text-brand-gold transition-all duration-300 shadow-lg shadow-black/30 relative z-10">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2 text-ui-text-primary">Actionable Outputs</h3>
+                    <p class="text-xs font-mono text-brand-gold mb-2 opacity-80">(AI - Human)</p>
+                    <p class="text-sm text-ui-text-secondary">Data-driven progress tracking and growth pathways.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section (Interface Dark) -->
+    <section class="py-16 md:py-24 bg-ui-dark" id="mission">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-ui-text-primary mb-2 font-serif">What Drives Us</h2>
+            <p class="text-lg md:text-xl text-brand-gold font-medium mb-10">Our mission to transform SME growth through innovation</p>
+            
+            <div class="prose prose-lg mx-auto text-ui-text-secondary">
+                <p class="mb-6">
+                    <span class="font-bold text-ui-text-primary">DEVONEERS</span> is a purpose-driven organization committed to enabling inclusive economic growth by tackling the persistent barriers that constrain SME transformation in fragile and transitioning economies.
+                </p>
+                <blockquote class="p-6 bg-ui-card border-l-4 border-brand-gold italic text-ui-text-primary font-serif text-lg md:text-xl my-8 rounded-r-lg">
+                    "By reframing SME upgrading as a data- and AI-powered process, transformation can become faster, measurable, and affordable at scale, creating a blueprint for replication worldwide."
+                </blockquote>
+            </div>
+        </div>
+    </section>
+
+    <!-- Configuration Configurator CTA -->
+    <section class="py-16 md:py-20 bg-brand-dark border-t border-brand-medium">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-ui-card rounded-3xl p-8 md:p-12 shadow-2xl flex flex-col lg:flex-row items-center gap-12 relative overflow-hidden border border-brand-medium">
+                <!-- Decor -->
+                <div class="absolute top-0 right-0 w-64 h-64 bg-brand-light/20 rounded-full -mr-32 -mt-32 z-0 blur-3xl"></div>
+
+                <div class="lg:w-1/2 relative z-10">
+                    <h2 class="text-3xl font-bold text-ui-text-primary mb-4">Let's Transform SMEs Together</h2>
+                    <p class="text-ui-text-secondary mb-6 leading-relaxed">
+                        RootRise comes with a strong standard configuration based on our SME transformation work. The same engine can be re-oriented around green financing, export, innovation, jobs, or any other focus.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-ui-dark border border-brand-light text-ui-text-secondary text-sm rounded-full">Green Financing</span>
+                        <span class="px-3 py-1 bg-ui-dark border border-brand-light text-ui-text-secondary text-sm rounded-full">Export</span>
+                        <span class="px-3 py-1 bg-ui-dark border border-brand-light text-ui-text-secondary text-sm rounded-full">Innovation</span>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 w-full relative z-10">
+                    <div class="bg-brand-dark rounded-xl p-8 text-center border border-brand-light/50">
+                        <h3 class="text-2xl font-bold mb-2 text-ui-text-primary">Ready to Transform?</h3>
+                        <p class="text-ui-text-secondary mb-8">Join hundreds of SMEs that have accelerated their growth.</p>
+                        
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center" id="start">
+                            <button class="w-full sm:w-auto bg-brand-gold hover:bg-yellow-500 text-ui-dark font-bold py-4 px-8 rounded-lg shadow-lg transition-all transform hover:scale-105">
+                                Start Your Diagnostic
+                            </button>
+                            <button class="w-full sm:w-auto bg-transparent border border-ui-text-secondary hover:border-ui-text-primary text-ui-text-primary font-bold py-4 px-8 rounded-lg transition-all">
+                                Contact Sales
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Brand Background Dark Blue) -->
+    <footer class="bg-brand-dark text-ui-text-secondary pt-16 pb-8 border-t border-ui-card">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+                <div class="col-span-2 md:col-span-1">
+                    <div class="flex items-center gap-2 text-ui-text-primary text-xl font-bold mb-6">
+                        <i class="fa-solid fa-seedling text-brand-gold"></i> RootRise
+                    </div>
+                    <p class="text-sm text-ui-text-secondary mb-4">
+                        Powered by DEVONEERS. <br>
+                        AI Infrastructure for SME Intelligence.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="hover:text-brand-gold transition-colors"><i class="fa-brands fa-linkedin text-xl"></i></a>
+                        <a href="#" class="hover:text-brand-gold transition-colors"><i class="fa-brands fa-twitter text-xl"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-ui-text-primary font-bold mb-4">Platform</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-brand-gold transition-colors">Diagnostics</a></li>
+                        <li><a href="#" class="hover:text-brand-gold transition-colors">Transformation</a></li>
+                        <li><a href="#" class="hover:text-brand-gold transition-colors">Implementation</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-ui-text-primary font-bold mb-4">Company</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-brand-gold transition-colors">About Devoneers</a></li>
+                        <li><a href="#" class="hover:text-brand-gold transition-colors">Our Mission</a></li>
+                        <li><a href="#" class="hover:text-brand-gold transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-ui-text-primary font-bold mb-4">Resources</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-brand-gold transition-colors">Blog</a></li>
+                        <li><a href="#" class="hover:text-brand-gold transition-colors">Case Studies</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-ui-card pt-8 flex flex-col md:flex-row justify-between items-center text-sm gap-4">
+                <p class="text-center md:text-left">&copy; 2024 RootRise by DEVONEERS. All rights reserved.</p>
+                <div class="flex gap-6 justify-center md:justify-end">
+                    <a href="#" class="hover:text-ui-text-primary">Privacy Policy</a>
+                    <a href="#" class="hover:text-ui-text-primary">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script to handle Sticky Nav Shadow, Mobile Menu & Live Chart -->
+    <script>
+        // Nav Logic
+        const nav = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 10) {
+                nav.classList.add('shadow-md');
+                nav.classList.add('bg-opacity-95');
+            } else {
+                nav.classList.remove('shadow-md');
+            }
+        });
+
+        // Mobile Menu Logic
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+            // Change icon state
+            const icon = mobileMenuBtn.querySelector('i');
+            if(mobileMenu.classList.contains('open')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            } else {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Smoother Cubic Bezier Path Generation
+        function getSmoothPath(points) {
+            let d = `M ${points[0].x} ${points[0].currentY}`;
+            
+            for (let i = 0; i < points.length - 1; i++) {
+                const p0 = points[i];
+                const p1 = points[i + 1];
+
+                // Simple smoothing by using control points at 1/3 and 2/3 distance
+                // For a more advanced "Catmull-Rom" style, we'd need neighbor points.
+                // Here we use a simpler approach that ensures continuity by maintaining tangent slopes 
+                // but for a gentle "financial chart" look, standard cubic bezier works well.
+                
+                // Let's create control points that smooth out the line horizontally
+                const cp1x = p0.x + (p1.x - p0.x) / 3;
+                const cp1y = p0.currentY; // Flat tangent start
+                
+                const cp2x = p0.x + 2 * (p1.x - p0.x) / 3;
+                const cp2y = p1.currentY; // Flat tangent end
+
+                // Better approach for continuous flow:
+                // We'll just use a simple spline-like interpolation logic.
+                // A very common trick for smooth charts is:
+                // CP1 is (currentX + interval/2, currentY)
+                // CP2 is (nextX - interval/2, nextY)
+                
+                // Let's try the simple midpoint quadratic or a computed cubic
+                // For "Reasonable & Normal" movement, let's stick to a custom spline logic:
+                const tension = 0.4;
+                
+                const prev = points[i - 1] || points[i];
+                const next = points[i + 2] || points[i + 1];
+                
+                const cp1_x = p0.x + (p1.x - prev.x) * tension;
+                const cp1_y = p0.currentY + (p1.currentY - prev.currentY) * tension;
+                
+                const cp2_x = p1.x - (next.x - p0.x) * tension;
+                const cp2_y = p1.currentY - (next.currentY - p0.currentY) * tension;
+                
+                d += ` C ${cp1_x} ${cp1_y}, ${cp2_x} ${cp2_y}, ${p1.x} ${p1.currentY}`;
+            }
+            return d;
+        }
+
+        // Live Chart Logic (Gold Color Palette)
+        const linePath = document.getElementById('linePath');
+        const areaPath = document.getElementById('areaPath');
+        const endCursor = document.getElementById('endCursor');
+        const pulseAnim = document.getElementById('pulseAnim');
+
+        const width = 1000;
+        const height = 300;
+        const pointsCount = 15; // Fewer points for smoother curves
+        const interval = width / (pointsCount - 1);
+        
+        // Base curve parameters (S-Curve Logistical growth style)
+        let points = [];
+        for (let i = 0; i < pointsCount; i++) {
+            const x = i * interval;
+            const t = i / (pointsCount - 1);
+            
+            // Sigmoid-like S-Curve for realistic growth
+            // 1 / (1 + e^-k(x-x0))
+            const sigmoid = 1 / (1 + Math.exp(-6 * (t - 0.5)));
+            
+            // Map sigmoid (0 to 1) to height (height to 0 because SVG y is down)
+            // Start at 90% height (low), end at 10% height (high)
+            const baseY = height - (sigmoid * (height * 0.8)) - (height * 0.1);
+
+            points.push({
+                x: x,
+                baseY: baseY,
+                currentY: baseY,
+                offset: Math.random() * Math.PI * 2 
+            });
+        }
+
+        let time = 0;
+
+        function animateChart() {
+            // Slower time increment for "Normal" movement
+            time += 0.02;
+            
+            points.forEach((p, i) => {
+                // Reduced noise amplitude (2.5 instead of 5)
+                const noise = Math.sin(time + p.offset) * 2.5; 
+                p.currentY = p.baseY + noise;
+            });
+
+            // Use Smooth Path Generation
+            const pathD = getSmoothPath(points);
+
+            linePath.setAttribute('d', pathD);
+            const areaD = `${pathD} L${width},${height} L0,${height} Z`;
+            areaPath.setAttribute('d', areaD);
+
+            const lastPoint = points[points.length - 1];
+            endCursor.setAttribute('cx', lastPoint.x);
+            endCursor.setAttribute('cy', lastPoint.currentY);
+
+            requestAnimationFrame(animateChart);
+        }
+
+        // Initialize
+        animateChart();
+    </script>
+</body>
+</html>
