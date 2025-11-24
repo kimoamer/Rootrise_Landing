@@ -130,8 +130,8 @@
 </head>
 <body class="font-sans antialiased overflow-x-hidden selection:bg-brand-gold selection:text-brand-dark">
 
-    <!-- Navigation (Interface Dark #18243D) -->
-    <nav class="fixed w-full bg-ui-dark/95 backdrop-blur-md z-50 border-b border-brand-light/30 transition-all duration-300" id="navbar">
+    <!-- Navigation (Starts Transparent, becomes Interface Dark on scroll) -->
+    <nav class="fixed w-full bg-transparent z-50 border-b border-transparent transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <!-- Logo -->
@@ -615,14 +615,22 @@
     <script>
         // Nav Logic
         const nav = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 10) {
-                nav.classList.add('shadow-md');
-                nav.classList.add('bg-opacity-95');
+        
+        function updateNavState() {
+            if (window.scrollY > 20) {
+                // Sticky State
+                nav.classList.remove('bg-transparent', 'border-transparent');
+                nav.classList.add('bg-ui-dark/95', 'backdrop-blur-md', 'border-brand-light/30', 'shadow-md');
             } else {
-                nav.classList.remove('shadow-md');
+                // Hero State (Transparent)
+                nav.classList.add('bg-transparent', 'border-transparent');
+                nav.classList.remove('bg-ui-dark/95', 'backdrop-blur-md', 'border-brand-light/30', 'shadow-md');
             }
-        });
+        }
+
+        window.addEventListener('scroll', updateNavState);
+        // Initialize on load
+        updateNavState();
 
         // Mobile Menu Logic
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
