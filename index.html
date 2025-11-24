@@ -184,12 +184,14 @@
         
         <!-- Background Video -->
         <div class="absolute inset-0 w-full h-full z-0">
-            <video class="w-full h-full object-cover opacity-60 mix-blend-overlay" autoplay loop muted playsinline>
+            <!-- Removed mix-blend-overlay and increased opacity for better visibility -->
+            <video class="w-full h-full object-cover" autoplay loop muted playsinline>
                 <source src="https://cdn.pixabay.com/video/2023/01/30/148596-794221551_large.mp4" type="video/mp4">
             </video>
-            <!-- Dark Blue Overlay (Brand Background) -->
-            <div class="absolute inset-0 bg-brand-dark/90"></div>
-            <div class="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r from-brand-dark via-brand-dark/95 to-brand-medium/50"></div>
+            <!-- Dark Blue Overlay (Brand Background) - Reduced opacity from 90% to 50% -->
+            <div class="absolute inset-0 bg-brand-dark/50"></div>
+            <!-- Gradient Overlay - Adjusted to be more transparent on the right side -->
+            <div class="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r from-brand-dark/90 via-brand-dark/60 to-transparent"></div>
         </div>
 
         <!-- LIVE JS Animated Growth Chart Overlay (Gold) -->
