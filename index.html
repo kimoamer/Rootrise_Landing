@@ -150,12 +150,9 @@
             <div class="flex justify-between items-center h-20">
                 <!-- Logo -->
                 <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 bg-brand-dark rounded-lg flex items-center justify-center text-brand-gold text-xl font-bold border border-brand-medium">
-                        <i class="fa-solid fa-seedling"></i>
-                    </div>
-                    <div class="flex flex-col">
-                        <span class="text-2xl font-bold text-brand-gold tracking-tight" style="color: #E1A549;">RootRise</span>
-                        <span class="text-[0.65rem] uppercase tracking-wider text-ui-text-secondary font-semibold">by DEVONEERS</span>
+                    <img src="https://rootrise.devoneers.org/files/Rootrise%20Logo.png" alt="RootRise" class="h-12 w-auto object-contain">
+                    <div class="flex flex-col justify-center">
+                        <span class="text-[0.65rem] uppercase tracking-wider text-ui-text-secondary font-semibold mt-1">by DEVONEERS</span>
                     </div>
                 </div>
 
@@ -194,7 +191,7 @@
     </nav>
 
     <!-- Hero Section (Brand Background Dark Blue #132938) -->
-    <header class="relative pt-28 pb-16 lg:pt-40 lg:pb-32 overflow-hidden flex items-center min-h-[90vh] bg-brand-dark">
+    <header class="relative pt-32 pb-12 lg:pt-40 lg:pb-32 overflow-hidden flex flex-col justify-center min-h-screen lg:min-h-[90vh] bg-brand-dark">
         
         <!-- Background Video -->
         <div class="absolute inset-0 w-full h-full z-0">
@@ -209,7 +206,7 @@
         </div>
 
         <!-- LIVE JS Animated Growth Chart Overlay (Gold) -->
-        <div class="absolute bottom-0 left-0 w-full h-[40vh] md:h-[60vh] z-0 pointer-events-none chart-container">
+        <div class="absolute bottom-0 left-0 w-full h-[30vh] md:h-[60vh] z-0 pointer-events-none chart-container">
             <svg id="liveChart" class="w-full h-full" viewBox="0 0 1000 300" preserveAspectRatio="none">
                 <defs>
                     <linearGradient id="growthGradient" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -239,22 +236,22 @@
             </svg>
         </div>
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full h-full flex flex-col justify-center">
             <div class="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
                 <!-- Hero Content -->
                 <div class="max-w-2xl text-center lg:text-left mx-auto lg:mx-0">
                     
-                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-ui-text-primary leading-[1.1] mb-6 drop-shadow-xl">
+                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-bold text-ui-text-primary leading-tight mb-6 drop-shadow-xl">
                         AI Infrastructure for <br class="hidden sm:block"/> <span class="brand-gradient-text">SME Intelligence</span>
                     </h1>
                     
-                    <p class="text-lg sm:text-xl text-ui-text-secondary mb-4 leading-relaxed font-light">
+                    <p class="text-base sm:text-xl text-ui-text-secondary mb-4 leading-relaxed font-light">
                         A configurable diagnostic, planning, and implementation engine built for SMEs, investors, donors, accelerators, and governments.
                     </p>
                     
                     <div class="h-px w-24 bg-brand-gold/50 mb-6 mx-auto lg:mx-0"></div>
 
-                    <p class="text-base text-ui-text-secondary mb-8 leading-relaxed opacity-80">
+                    <p class="text-sm sm:text-base text-ui-text-secondary mb-8 leading-relaxed opacity-80">
                         RootRise adapts to different mandates and objectives, from export access to climate finance, from innovation to operational upgrading. By embedding intelligence into every step, RootRise makes upgrading scalable, affordable, and investment-ready.
                     </p>
                     
@@ -265,11 +262,6 @@
                             Learn More <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
                         </a>
                     </div>
-
-                    <p class="text-sm text-ui-text-secondary mt-6 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 sm:gap-6 opacity-70">
-                        <span class="flex items-center gap-2"><i class="fa-solid fa-shield-halved text-brand-gold"></i> Enterprise Grade</span>
-                        <span class="flex items-center gap-2"><i class="fa-solid fa-bolt text-brand-gold"></i> Instant Analysis</span>
-                    </p>
                 </div>
 
                 <!-- Hero Visual (HUD Elements) - Hidden on Mobile to reduce clutter -->
@@ -306,19 +298,6 @@
             </div>
         </div>
     </header>
-
-    <!-- Social Proof Strip (Interface Dark #18243D) -->
-    <section class="border-y border-brand-medium bg-ui-dark py-10">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <p class="text-sm font-semibold text-ui-text-secondary uppercase tracking-widest mb-6">Trusted by Ecosystem Leaders</p>
-            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-50 grayscale hover:grayscale-0 transition-all duration-500 hover:opacity-100">
-                <div class="text-lg md:text-xl font-serif font-bold text-ui-text-secondary flex items-center gap-2 mb-4 md:mb-0"><i class="fa-solid fa-building-columns"></i> GlobalBank</div>
-                <div class="text-lg md:text-xl font-bold text-ui-text-secondary flex items-center gap-2 mb-4 md:mb-0"><i class="fa-solid fa-leaf"></i> AgriFund</div>
-                <div class="text-lg md:text-xl font-bold text-ui-text-secondary flex items-center gap-2 mb-4 md:mb-0"><i class="fa-solid fa-hand-holding-dollar"></i> SME Ventures</div>
-                <div class="text-lg md:text-xl font-bold text-ui-text-secondary flex items-center gap-2"><i class="fa-solid fa-globe"></i> TradeCorp</div>
-            </div>
-        </div>
-    </section>
 
     <!-- What RootRise Delivers (Card BG #213552) -->
     <section class="py-16 md:py-24 bg-ui-dark relative overflow-hidden" id="features">
@@ -434,8 +413,8 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
                 <div class="col-span-2 md:col-span-1">
-                    <div class="flex items-center gap-2 text-ui-text-primary text-xl font-bold mb-6">
-                        <i class="fa-solid fa-seedling text-brand-gold"></i> RootRise
+                    <div class="mb-6">
+                        <img src="https://rootrise.devoneers.org/files/Rootrise%20Logo.png" alt="RootRise" class="h-10 w-auto object-contain">
                     </div>
                     <p class="text-sm text-ui-text-secondary mb-4">
                         Powered by DEVONEERS. <br>
