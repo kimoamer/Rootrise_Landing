@@ -303,7 +303,7 @@
         </div>
     </header>
 
-    <!-- What RootRise Delivers (Revised Explanation Design) -->
+    <!-- What RootRise Delivers (Live UI Simulation Design) -->
     <section class="py-20 md:py-32 bg-ui-dark relative overflow-hidden" id="features">
         <!-- Background Decor -->
         <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none opacity-20">
@@ -317,7 +317,7 @@
                 <p class="text-lg text-ui-text-secondary/90 max-w-2xl mx-auto">Comprehensive transformation solutions that drive sustainable growth and investment readiness through intelligent infrastructure.</p>
             </div>
 
-            <!-- Feature 1: Sustained Growth Journeys -->
+            <!-- Feature 1: Sustained Growth Journeys (Live Dashboard Simulation) -->
             <div class="flex flex-col md:flex-row items-center gap-12 lg:gap-20 mb-32 last:mb-0 group">
                 <div class="flex-1 order-2 md:order-1">
                     <div class="flex items-center gap-4 mb-6">
@@ -335,43 +335,96 @@
                     </ul>
                 </div>
                 <div class="flex-1 w-full order-1 md:order-2">
-                    <div class="glass-panel rounded-2xl p-2 md:p-4 transform md:group-hover:translate-x-4 transition-transform duration-500 hover:border-brand-gold/50">
-                        <div class="bg-ui-dark/50 rounded-xl overflow-hidden aspect-video relative flex items-center justify-center border border-brand-light/20">
-                            <!-- Abstract Graphic -->
-                            <div class="absolute bottom-0 left-0 w-full h-full opacity-30 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-brand-gold/40 via-transparent to-transparent"></div>
-                            <svg class="w-3/4 h-3/4 drop-shadow-[0_0_15px_rgba(225,165,73,0.3)]" viewBox="0 0 200 100">
-                                <path d="M10,90 Q50,90 70,60 T130,50 T190,10" fill="none" stroke="#E1A549" stroke-width="4" stroke-linecap="round"/>
-                                <circle cx="10" cy="90" r="4" fill="#E1A549"/>
-                                <circle cx="70" cy="60" r="4" fill="#E1A549"/>
-                                <circle cx="130" cy="50" r="4" fill="#E1A549"/>
-                                <circle cx="190" cy="10" r="6" fill="#fff" stroke="#E1A549" stroke-width="2"/>
-                                <!-- Bar Chart BG -->
-                                <rect x="20" y="70" width="10" height="20" fill="#2D5068" opacity="0.5"/>
-                                <rect x="40" y="60" width="10" height="30" fill="#2D5068" opacity="0.5"/>
-                                <rect x="60" y="40" width="10" height="50" fill="#2D5068" opacity="0.5"/>
-                                <rect x="80" y="55" width="10" height="35" fill="#2D5068" opacity="0.5"/>
-                                <rect x="100" y="30" width="10" height="60" fill="#2D5068" opacity="0.5"/>
-                                <rect x="120" y="45" width="10" height="45" fill="#2D5068" opacity="0.5"/>
-                                <rect x="140" y="20" width="10" height="70" fill="#2D5068" opacity="0.5"/>
-                            </svg>
+                    <div class="glass-panel rounded-2xl p-1 transform md:group-hover:translate-x-4 transition-transform duration-500 hover:border-brand-gold/50 shadow-2xl">
+                        <!-- UI Simulation: Growth Dashboard -->
+                        <div class="bg-ui-dark rounded-xl overflow-hidden aspect-video relative flex flex-col border border-brand-light/20">
+                            <!-- Window Header -->
+                            <div class="h-8 bg-brand-medium/20 border-b border-brand-light/20 flex items-center px-4 gap-2">
+                                <div class="w-2 h-2 rounded-full bg-red-500/50"></div>
+                                <div class="w-2 h-2 rounded-full bg-yellow-500/50"></div>
+                                <div class="w-2 h-2 rounded-full bg-green-500/50"></div>
+                                <div class="ml-auto w-20 h-2 rounded-full bg-brand-light/20"></div>
+                            </div>
+                            <!-- Content -->
+                            <div class="p-6 flex-1 flex flex-col relative">
+                                <!-- Grid Lines -->
+                                <div class="absolute inset-0 p-6 flex flex-col justify-between opacity-10 pointer-events-none">
+                                    <div class="w-full h-px bg-white"></div>
+                                    <div class="w-full h-px bg-white"></div>
+                                    <div class="w-full h-px bg-white"></div>
+                                    <div class="w-full h-px bg-white"></div>
+                                </div>
+                                <!-- Live Graph -->
+                                <div class="flex items-end justify-between h-full gap-2 z-10">
+                                    <div class="w-[12%] bg-brand-light/30 rounded-t-sm h-[30%] animate-[pulse_3s_ease-in-out_infinite]"></div>
+                                    <div class="w-[12%] bg-brand-light/40 rounded-t-sm h-[45%] animate-[pulse_3s_ease-in-out_infinite_200ms]"></div>
+                                    <div class="w-[12%] bg-brand-light/50 rounded-t-sm h-[40%] animate-[pulse_3s_ease-in-out_infinite_400ms]"></div>
+                                    <div class="w-[12%] bg-brand-gold/60 rounded-t-sm h-[60%] animate-[pulse_3s_ease-in-out_infinite_600ms]"></div>
+                                    <div class="w-[12%] bg-brand-gold/80 rounded-t-sm h-[75%] animate-[pulse_3s_ease-in-out_infinite_800ms] relative group-hover:shadow-[0_0_15px_#E1A549]">
+                                        <!-- Tooltip -->
+                                        <div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-brand-dark px-2 py-1 rounded text-[10px] text-brand-gold border border-brand-gold/30">Target Met</div>
+                                    </div>
+                                    <div class="w-[12%] bg-brand-gold rounded-t-sm h-[90%] animate-[pulse_3s_ease-in-out_infinite_1000ms]"></div>
+                                </div>
+                                <!-- Trend Line overlay -->
+                                <svg class="absolute inset-0 w-full h-full p-6 z-20 overflow-visible">
+                                    <path d="M0,100 Q40,90 80,60 T160,50 T240,20" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-dasharray="300" stroke-dashoffset="300" class="animate-[dash_3s_linear_infinite_alternate]"/>
+                                </svg>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Feature 2: Structured & Digitized Systems -->
+            <!-- Feature 2: Structured & Digitized Systems (Live Kanban/Process) -->
             <div class="flex flex-col md:flex-row items-center gap-12 lg:gap-20 mb-32 last:mb-0 group">
                 <div class="flex-1 w-full order-1">
-                    <div class="glass-panel rounded-2xl p-2 md:p-4 transform md:group-hover:-translate-x-4 transition-transform duration-500 hover:border-brand-light/50">
-                        <div class="bg-ui-dark/50 rounded-xl overflow-hidden aspect-video relative flex items-center justify-center border border-brand-light/20">
-                            <!-- Abstract Graphic -->
-                            <div class="grid grid-cols-2 gap-4 w-3/4">
-                                <div class="bg-brand-medium/40 p-3 rounded border border-brand-light/30 h-16 w-full animate-pulse-slow"></div>
-                                <div class="bg-brand-medium/40 p-3 rounded border border-brand-light/30 h-16 w-full"></div>
-                                <div class="bg-brand-medium/40 p-3 rounded border border-brand-light/30 h-16 w-full"></div>
-                                <div class="bg-brand-medium/40 p-3 rounded border border-brand-light/30 h-16 w-full animate-pulse-slow" style="animation-delay: 1s;"></div>
+                    <div class="glass-panel rounded-2xl p-1 transform md:group-hover:-translate-x-4 transition-transform duration-500 hover:border-brand-light/50 shadow-2xl">
+                         <!-- UI Simulation: Kanban Process -->
+                        <div class="bg-ui-dark rounded-xl overflow-hidden aspect-video relative flex flex-col border border-brand-light/20 p-6">
+                            <div class="flex justify-between mb-4">
+                                <div class="text-xs font-mono text-ui-text-secondary">PROCESS_ID: #8821</div>
+                                <div class="flex gap-1">
+                                    <div class="w-1 h-1 rounded-full bg-green-500 animate-ping"></div>
+                                    <div class="text-xs font-bold text-green-500">ACTIVE</div>
+                                </div>
                             </div>
-                            <div class="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.05)_50%,transparent_75%)] bg-[length:250%_250%] animate-shimmer"></div>
+                            <!-- Lane Container -->
+                            <div class="flex gap-4 h-full">
+                                <!-- Lane 1: Input -->
+                                <div class="flex-1 bg-brand-medium/20 rounded-lg p-2 flex flex-col gap-2 border border-brand-light/10">
+                                    <div class="h-2 w-1/2 bg-brand-light/30 rounded mb-2"></div>
+                                    <!-- Moving Card -->
+                                    <div class="bg-brand-card p-2 rounded border border-brand-light/20 shadow-lg animate-[pulse_2s_infinite]">
+                                        <div class="h-1 w-3/4 bg-brand-secondary/50 rounded mb-1"></div>
+                                        <div class="h-1 w-1/2 bg-brand-secondary/30 rounded"></div>
+                                    </div>
+                                    <div class="bg-brand-card p-2 rounded border border-brand-light/20 opacity-50">
+                                        <div class="h-1 w-full bg-brand-secondary/30 rounded"></div>
+                                    </div>
+                                </div>
+                                <!-- Arrow -->
+                                <div class="flex items-center justify-center text-brand-gold/50">
+                                    <i class="fa-solid fa-chevron-right animate-[pulse_1s_infinite]"></i>
+                                </div>
+                                <!-- Lane 2: Output (Digitized) -->
+                                <div class="flex-1 bg-brand-gold/5 rounded-lg p-2 flex flex-col gap-2 border border-brand-gold/10 relative overflow-hidden">
+                                    <div class="absolute inset-0 bg-gradient-to-b from-brand-gold/10 to-transparent animate-[shimmer_2s_infinite]"></div>
+                                    <div class="h-2 w-1/2 bg-brand-gold/30 rounded mb-2"></div>
+                                    <div class="bg-brand-gold/20 p-2 rounded border border-brand-gold/30 shadow-[0_0_10px_rgba(225,165,73,0.1)]">
+                                        <div class="flex justify-between items-center">
+                                            <div class="h-1 w-1/2 bg-brand-gold rounded"></div>
+                                            <i class="fa-solid fa-check text-[8px] text-brand-gold"></i>
+                                        </div>
+                                    </div>
+                                    <div class="bg-brand-gold/20 p-2 rounded border border-brand-gold/30 shadow-[0_0_10px_rgba(225,165,73,0.1)]">
+                                        <div class="flex justify-between items-center">
+                                            <div class="h-1 w-2/3 bg-brand-gold rounded"></div>
+                                            <i class="fa-solid fa-check text-[8px] text-brand-gold"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -392,7 +445,7 @@
                 </div>
             </div>
 
-            <!-- Feature 3: Credible Investment Cases -->
+            <!-- Feature 3: Credible Investment Cases (Live AI Analysis) -->
             <div class="flex flex-col md:flex-row items-center gap-12 lg:gap-20 mb-32 last:mb-0 group">
                 <div class="flex-1 order-2 md:order-1">
                     <div class="flex items-center gap-4 mb-6">
@@ -410,39 +463,69 @@
                     </ul>
                 </div>
                 <div class="flex-1 w-full order-1 md:order-2">
-                    <div class="glass-panel rounded-2xl p-2 md:p-4 transform md:group-hover:translate-x-4 transition-transform duration-500 hover:border-brand-gold/50">
-                        <div class="bg-ui-dark/50 rounded-xl overflow-hidden aspect-video relative flex items-center justify-center border border-brand-light/20 flex-col gap-2 p-8">
-                            <!-- Abstract Graphic -->
-                            <div class="w-full h-2 bg-brand-light/30 rounded-full overflow-hidden">
-                                <div class="w-3/4 h-full bg-brand-gold animate-[width_2s_ease-in-out_infinite]"></div>
+                    <div class="glass-panel rounded-2xl p-1 transform md:group-hover:translate-x-4 transition-transform duration-500 hover:border-brand-gold/50 shadow-2xl">
+                        <!-- UI Simulation: AI Analysis Scanner -->
+                        <div class="bg-ui-dark rounded-xl overflow-hidden aspect-video relative flex flex-col border border-brand-light/20 p-6 items-center justify-center">
+                            <!-- Document Representation -->
+                            <div class="bg-white/5 border border-white/10 p-4 w-3/4 rounded-lg relative overflow-hidden">
+                                <div class="flex gap-4 mb-3">
+                                    <div class="w-10 h-10 bg-brand-light/30 rounded-full"></div>
+                                    <div class="flex-1">
+                                        <div class="h-2 w-1/2 bg-brand-light/30 rounded mb-2"></div>
+                                        <div class="h-2 w-1/4 bg-brand-light/20 rounded"></div>
+                                    </div>
+                                </div>
+                                <div class="space-y-2">
+                                    <div class="h-1 w-full bg-brand-light/10 rounded"></div>
+                                    <div class="h-1 w-full bg-brand-light/10 rounded"></div>
+                                    <div class="h-1 w-2/3 bg-brand-light/10 rounded"></div>
+                                </div>
+                                <!-- Scanning Laser -->
+                                <div class="absolute inset-x-0 h-[2px] bg-brand-gold shadow-[0_0_15px_#E1A549] top-0 animate-[scan_3s_ease-in-out_infinite]"></div>
+                                <!-- Result Popup -->
+                                <div class="absolute inset-0 bg-brand-dark/80 flex items-center justify-center opacity-0 animate-[fade-in-out_3s_infinite]">
+                                    <div class="text-center">
+                                        <div class="text-3xl font-bold text-brand-gold mb-1">98/100</div>
+                                        <div class="text-[10px] tracking-widest text-white uppercase">Ready to Invest</div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="w-full h-2 bg-brand-light/30 rounded-full overflow-hidden">
-                                <div class="w-1/2 h-full bg-brand-medium"></div>
-                            </div>
-                            <div class="w-full h-2 bg-brand-light/30 rounded-full overflow-hidden">
-                                <div class="w-5/6 h-full bg-brand-gold animate-[width_3s_ease-in-out_infinite]"></div>
-                            </div>
-                            <i class="fa-solid fa-certificate text-5xl text-brand-gold/20 absolute bottom-4 right-4"></i>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Feature 4: SME Growth for Target Objectives -->
+            <!-- Feature 4: SME Growth for Target Objectives (Live Configuration) -->
             <div class="flex flex-col md:flex-row items-center gap-12 lg:gap-20 mb-32 last:mb-0 group">
                 <div class="flex-1 w-full order-1">
-                    <div class="glass-panel rounded-2xl p-2 md:p-4 transform md:group-hover:-translate-x-4 transition-transform duration-500 hover:border-brand-light/50">
-                        <div class="bg-ui-dark/50 rounded-xl overflow-hidden aspect-video relative flex items-center justify-center border border-brand-light/20">
-                             <!-- Abstract Graphic -->
-                             <div class="relative w-32 h-32 flex items-center justify-center">
-                                 <div class="absolute w-full h-full border-2 border-brand-light/20 rounded-full animate-[spin_10s_linear_infinite]"></div>
-                                 <div class="absolute w-20 h-20 border-2 border-brand-light/40 rounded-full"></div>
-                                 <div class="absolute w-10 h-10 bg-brand-gold/80 rounded-full shadow-[0_0_15px_rgba(225,165,73,0.5)] animate-pulse"></div>
-                                 <!-- Crosshair -->
-                                 <div class="absolute w-40 h-[1px] bg-brand-light/30"></div>
-                                 <div class="absolute h-40 w-[1px] bg-brand-light/30"></div>
-                             </div>
-                        </div>
+                    <div class="glass-panel rounded-2xl p-1 transform md:group-hover:-translate-x-4 transition-transform duration-500 hover:border-brand-light/50 shadow-2xl">
+                         <!-- UI Simulation: Configuration Controls -->
+                         <div class="bg-ui-dark rounded-xl overflow-hidden aspect-video relative flex flex-col border border-brand-light/20 p-6 justify-center gap-4">
+                            <!-- Toggle Row -->
+                            <div class="flex items-center justify-between p-3 bg-brand-card rounded-lg border border-brand-light/10">
+                                <span class="text-xs font-bold text-ui-text-secondary">EXPORT_MODE</span>
+                                <div class="w-10 h-5 bg-brand-gold rounded-full relative">
+                                    <div class="absolute right-1 top-1 w-3 h-3 bg-white rounded-full shadow-sm"></div>
+                                </div>
+                            </div>
+                            <!-- Slider Row -->
+                            <div class="p-3 bg-brand-card rounded-lg border border-brand-light/10">
+                                <div class="flex justify-between text-[10px] text-ui-text-secondary mb-2">
+                                    <span>SUSTAINABILITY</span>
+                                    <span class="text-brand-gold">HIGH</span>
+                                </div>
+                                <div class="w-full h-1 bg-brand-dark rounded-full relative">
+                                    <div class="absolute left-0 top-0 h-full w-3/4 bg-brand-gold rounded-full"></div>
+                                    <div class="absolute left-3/4 top-1/2 -translate-y-1/2 w-3 h-3 bg-white border-2 border-brand-gold rounded-full shadow animate-[pulse_2s_infinite]"></div>
+                                </div>
+                            </div>
+                            <!-- Tags Row -->
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-brand-light/20 text-brand-light text-[10px] rounded border border-brand-light/20">Climate</span>
+                                <span class="px-2 py-1 bg-brand-gold/20 text-brand-gold text-[10px] rounded border border-brand-gold/20 animate-pulse">Innovation</span>
+                                <span class="px-2 py-1 bg-brand-light/20 text-brand-light text-[10px] rounded border border-brand-light/20">Jobs</span>
+                            </div>
+                         </div>
                     </div>
                 </div>
                 <div class="flex-1 order-2">
@@ -462,7 +545,7 @@
                 </div>
             </div>
 
-            <!-- Feature 5: A New Transformation Workforce -->
+            <!-- Feature 5: A New Transformation Workforce (Live Network Map) -->
             <div class="flex flex-col md:flex-row items-center gap-12 lg:gap-20 mb-32 last:mb-0 group">
                 <div class="flex-1 order-2 md:order-1">
                     <div class="flex items-center gap-4 mb-6">
@@ -480,43 +563,76 @@
                     </ul>
                 </div>
                 <div class="flex-1 w-full order-1 md:order-2">
-                    <div class="glass-panel rounded-2xl p-2 md:p-4 transform md:group-hover:translate-x-4 transition-transform duration-500 hover:border-brand-gold/50">
-                        <div class="bg-ui-dark/50 rounded-xl overflow-hidden aspect-video relative flex items-center justify-center border border-brand-light/20">
-                            <!-- Abstract Graphic -->
-                             <div class="flex gap-4">
-                                 <div class="w-12 h-12 rounded-full bg-brand-medium border border-brand-light flex items-center justify-center"><i class="fa-solid fa-user text-brand-secondary text-xs"></i></div>
-                                 <div class="w-12 h-12 rounded-full bg-brand-gold border border-white/20 flex items-center justify-center shadow-lg scale-110 z-10 animate-float"><i class="fa-solid fa-user-gear text-ui-dark"></i></div>
-                                 <div class="w-12 h-12 rounded-full bg-brand-medium border border-brand-light flex items-center justify-center"><i class="fa-solid fa-user text-brand-secondary text-xs"></i></div>
-                             </div>
-                             <!-- Connecting lines -->
-                             <svg class="absolute inset-0 w-full h-full pointer-events-none opacity-30">
-                                 <line x1="50%" y1="50%" x2="30%" y2="80%" stroke="#E1A549" stroke-width="1" />
-                                 <line x1="50%" y1="50%" x2="70%" y2="20%" stroke="#E1A549" stroke-width="1" />
-                                 <line x1="50%" y1="50%" x2="20%" y2="30%" stroke="#E1A549" stroke-width="1" />
+                    <div class="glass-panel rounded-2xl p-1 transform md:group-hover:translate-x-4 transition-transform duration-500 hover:border-brand-gold/50 shadow-2xl">
+                        <!-- UI Simulation: Workforce Map -->
+                        <div class="bg-ui-dark rounded-xl overflow-hidden aspect-video relative flex items-center justify-center border border-brand-light/20 bg-[radial-gradient(#2D5068_1px,transparent_1px)] [background-size:16px_16px]">
+                            <!-- Connecting Lines -->
+                             <svg class="absolute inset-0 w-full h-full pointer-events-none">
+                                <circle cx="50%" cy="50%" r="40" fill="none" stroke="#E1A549" stroke-width="1" class="animate-[ping_3s_infinite]" opacity="0.2"/>
+                                <line x1="50%" y1="50%" x2="20%" y2="30%" stroke="#E1A549" stroke-width="1" opacity="0.3" />
+                                <line x1="50%" y1="50%" x2="80%" y2="30%" stroke="#E1A549" stroke-width="1" opacity="0.3" />
+                                <line x1="50%" y1="50%" x2="20%" y2="70%" stroke="#E1A549" stroke-width="1" opacity="0.3" />
+                                <line x1="50%" y1="50%" x2="80%" y2="70%" stroke="#E1A549" stroke-width="1" opacity="0.3" />
                              </svg>
+                             <!-- Central Hub -->
+                             <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-brand-gold/20 rounded-full flex items-center justify-center border border-brand-gold text-brand-gold z-10 shadow-[0_0_20px_#E1A549]">
+                                 <i class="fa-solid fa-building"></i>
+                             </div>
+                             <!-- Agents -->
+                             <div class="absolute top-[30%] left-[20%] w-8 h-8 bg-brand-card rounded-full flex items-center justify-center border border-brand-light text-white shadow-lg animate-[float_4s_infinite]">
+                                <i class="fa-solid fa-user text-[10px]"></i>
+                                <div class="absolute -bottom-1 -right-1 w-2 h-2 bg-green-500 rounded-full border border-brand-dark"></div>
+                             </div>
+                             <div class="absolute top-[30%] right-[20%] w-8 h-8 bg-brand-card rounded-full flex items-center justify-center border border-brand-light text-white shadow-lg animate-[float_5s_infinite]">
+                                <i class="fa-solid fa-user text-[10px]"></i>
+                                <div class="absolute -bottom-1 -right-1 w-2 h-2 bg-green-500 rounded-full border border-brand-dark"></div>
+                             </div>
+                             <div class="absolute bottom-[30%] left-[20%] w-8 h-8 bg-brand-card rounded-full flex items-center justify-center border border-brand-light text-white shadow-lg animate-[float_6s_infinite]">
+                                <i class="fa-solid fa-user text-[10px]"></i>
+                                <div class="absolute -bottom-1 -right-1 w-2 h-2 bg-green-500 rounded-full border border-brand-dark"></div>
+                             </div>
+                             <div class="absolute bottom-[30%] right-[20%] w-8 h-8 bg-brand-card rounded-full flex items-center justify-center border border-brand-light text-white shadow-lg animate-[float_7s_infinite]">
+                                <i class="fa-solid fa-user text-[10px]"></i>
+                                <div class="absolute -bottom-1 -right-1 w-2 h-2 bg-green-500 rounded-full border border-brand-dark"></div>
+                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Feature 6: Investor Confidence & Access -->
+            <!-- Feature 6: Investor Confidence & Access (Live Deal Pipeline) -->
             <div class="flex flex-col md:flex-row items-center gap-12 lg:gap-20 group">
                 <div class="flex-1 w-full order-1">
-                    <div class="glass-panel rounded-2xl p-2 md:p-4 transform md:group-hover:-translate-x-4 transition-transform duration-500 hover:border-brand-light/50">
-                        <div class="bg-ui-dark/50 rounded-xl overflow-hidden aspect-video relative flex items-center justify-center border border-brand-light/20 flex-col">
-                            <!-- Abstract Pipeline/Funnel Graphic -->
-                            <div class="flex items-center gap-2 mb-2">
-                                <div class="w-2 h-2 rounded-full bg-brand-gold animate-[pulse_1s_infinite]"></div>
-                                <div class="w-2 h-2 rounded-full bg-brand-gold animate-[pulse_1s_infinite_200ms]"></div>
-                                <div class="w-2 h-2 rounded-full bg-brand-gold animate-[pulse_1s_infinite_400ms]"></div>
+                    <div class="glass-panel rounded-2xl p-1 transform md:group-hover:-translate-x-4 transition-transform duration-500 hover:border-brand-light/50 shadow-2xl">
+                         <!-- UI Simulation: Deal Pipeline -->
+                         <div class="bg-ui-dark rounded-xl overflow-hidden aspect-video relative flex items-center justify-between border border-brand-light/20 p-6 px-8 gap-4">
+                            <!-- Column 1 -->
+                            <div class="flex-1 h-full bg-brand-card/50 rounded-lg border border-brand-light/10 p-2 flex flex-col gap-2">
+                                <div class="text-[8px] text-ui-text-secondary font-bold uppercase mb-1">Pipeline</div>
+                                <div class="bg-brand-medium p-2 rounded shadow-sm border border-brand-light/20 opacity-50"></div>
+                                <div class="bg-brand-medium p-2 rounded shadow-sm border border-brand-light/20 opacity-30"></div>
                             </div>
-                            <div class="w-3/4 h-24 border-2 border-brand-light/20 border-b-0 rounded-t-lg relative overflow-hidden bg-brand-dark/30">
-                                <div class="absolute inset-x-0 top-0 h-1 bg-brand-gold/50 shadow-[0_0_10px_#E1A549] animate-[shimmer_2s_infinite]"></div>
+                            <!-- Arrow -->
+                            <i class="fa-solid fa-arrow-right text-brand-light/30"></i>
+                            <!-- Column 2 (Active) -->
+                            <div class="flex-1 h-full bg-brand-gold/5 rounded-lg border border-brand-gold/20 p-2 flex flex-col gap-2 relative overflow-hidden">
+                                <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-brand-gold/5 to-transparent animate-[shimmer_2s_infinite]"></div>
+                                <div class="text-[8px] text-brand-gold font-bold uppercase mb-1">Vetting</div>
+                                <div class="bg-brand-gold/20 p-2 rounded shadow-sm border border-brand-gold/30 animate-[pulse_2s_infinite]">
+                                    <div class="h-1 w-2/3 bg-brand-gold/50 rounded mb-1"></div>
+                                    <div class="h-1 w-1/2 bg-brand-gold/30 rounded"></div>
+                                </div>
                             </div>
-                            <div class="w-1/2 h-12 border-2 border-brand-light/20 border-t-0 rounded-b-lg flex items-center justify-center bg-brand-medium/20">
-                                <span class="text-xs font-mono text-brand-gold">VETTED</span>
+                            <!-- Arrow -->
+                            <i class="fa-solid fa-arrow-right text-brand-gold"></i>
+                            <!-- Column 3 (Success) -->
+                            <div class="flex-1 h-full bg-green-500/5 rounded-lg border border-green-500/20 p-2 flex flex-col justify-center items-center text-center gap-2">
+                                <div class="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center text-green-500 border border-green-500/30 shadow-[0_0_10px_rgba(34,197,94,0.3)]">
+                                    <i class="fa-solid fa-dollar-sign"></i>
+                                </div>
+                                <span class="text-[8px] text-green-500 font-bold uppercase">Funded</span>
                             </div>
-                        </div>
+                         </div>
                     </div>
                 </div>
                 <div class="flex-1 order-2">
