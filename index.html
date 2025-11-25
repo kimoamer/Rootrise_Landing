@@ -69,7 +69,8 @@
     <style>
         /* Base Styles */
         html {
-            scroll-padding-top: 100px; /* Offsets scroll position so sticky nav doesn't cover content */
+            /* FIXED: Changed from 100px to 80px to exactly match the navbar height */
+            scroll-padding-top: 80px; 
         }
 
         body {
@@ -191,8 +192,8 @@
     </nav>
 
     <!-- Hero Section (Brand Background Dark Blue #132938) -->
-    <!-- Updated: min-h-screen for full height, items-center for true vertical centering, safe pt-24 padding -->
-    <header class="relative pt-24 pb-12 lg:pt-32 lg:pb-32 overflow-hidden flex items-center min-h-screen bg-brand-dark">
+    <!-- FIXED: Used min-h-[100dvh] for better mobile view and reduced padding to fit screen better -->
+    <header class="relative pt-20 pb-10 lg:pt-28 lg:pb-20 overflow-hidden flex items-center min-h-[100dvh] bg-brand-dark">
         
         <!-- Background Video -->
         <div class="absolute inset-0 w-full h-full z-0">
