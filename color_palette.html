@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RootRise Design System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            gold: 'var(--acc-gold)',
+                            bronze: 'var(--acc-bronze)',
+                            bronzeDeep: 'var(--acc-bronze-deep)',
+                            teal: 'var(--acc-teal)',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* * ROOTRISE CSS VARIABLES 
+         * Based on the provided documentation
+         */
+        :root {
+            /* --- Brand Colors (Independent) --- */
+            --acc-gold: #C9A227;
+            --acc-bronze: #C69C6D;
+            --acc-bronze-deep: #805C33;
+            --acc-teal: #2F6F79;
+            --color-gold-light: #D4AF37;
+            --color-gold-dark: #B8860B;
+            
+            /* --- Gradients --- */
+            --grad-royal-bronze: linear-gradient(135deg, #C9A227 0%, #C69C6D 50%, #805C33 100%);
+
+            /* --- Base defaults (Light Mode) --- */
+            --bg-canvas: #FFFFFF;
+            --bg-surface: #F8F9FA;
+            --bg-surface-light: #F1F3F5;
+            --color-espresso-deeper: #1A1A1A;
+            
+            --bg-input: rgba(255, 255, 255, 0.8);
+            --bg-overlay: rgba(0, 0, 0, 0.5);
+            --bg-gold-subtle: rgba(201, 162, 39, 0.08);
+            --bg-gold-very-subtle: rgba(201, 162, 39, 0.04);
+            --bg-teal-subtle: rgba(47, 111, 121, 0.15);
+
+            --txt-primary: #1A1A1A;
+            --txt-secondary: #4A5568;
+            --text-muted: #718096;
+            --txt-on-accent: #FFFFFF;
+
+            --border-subtle: rgba(201, 162, 39, 0.2);
+            --border-accent: rgba(201, 162, 39, 0.4);
+            --border-strong: #B8860B;
+            --border-teal: rgba(47, 111, 121, 0.3);
+
+            --grad-surface-hybrid: linear-gradient(145deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 249, 250, 0.95) 100%);
+            --grad-text-title: linear-gradient(135deg, #1A1A1A 0%, #B8860B 100%);
+
+            --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(201, 162, 39, 0.15);
+            --shadow-btn: 0 2px 8px rgba(201, 162, 39, 0.25);
+            --shadow-elevated: 0 4px 16px rgba(0, 0, 0, 0.12);
+            --shadow-gold-glow: 0 0 16px rgba(201, 162, 39, 0.25);
+
+            --section-icon-start: #B8860B;
+            --section-icon-end: #9A7209;
+        }
+
+        /* --- Dark Mode Overrides --- */
+        html.dark {
+            --bg-canvas: #042229;
+            --bg-surface: #2D2420;
+            --bg-surface-light: #3A2E28;
+            --color-espresso-deeper: #241E1A;
+
+            --bg-input: rgba(4, 34, 41, 0.4);
+            --bg-overlay: rgba(0, 0, 0, 0.7);
+            --bg-gold-subtle: rgba(201, 162, 39, 0.1);
+            --bg-gold-very-subtle: rgba(201, 162, 39, 0.05);
+            --bg-teal-subtle: rgba(47, 111, 121, 0.2);
+
+            --txt-primary: #F5F0E6;
+            --txt-secondary: #A89F94;
+            --text-muted: #6B6358;
+            --txt-on-accent: #241E1A;
+
+            --border-subtle: rgba(201, 162, 39, 0.15);
+            --border-accent: rgba(201, 162, 39, 0.3);
+            --border-strong: #C9A227;
+            --border-teal: rgba(47, 111, 121, 0.3);
+
+            --grad-surface-hybrid: linear-gradient(145deg, rgba(45, 36, 32, 0.95) 0%, rgba(58, 46, 40, 0.95) 100%);
+            --grad-text-title: linear-gradient(135deg, #F5F0E6 0%, #C9A227 100%);
+
+            --shadow-card: 0 10px 30px -10px rgba(4, 34, 41, 0.8), 0 0 0 1px rgba(201, 162, 39, 0.1);
+            --shadow-btn: 0 4px 15px rgba(201, 162, 39, 0.3);
+            --shadow-elevated: 0 8px 24px rgba(0, 0, 0, 0.4);
+            --shadow-gold-glow: 0 0 20px rgba(201, 162, 39, 0.3);
+
+            --section-icon-start: #C9A227;
+            --section-icon-end: #B8860B;
+        }
+
+        body {
+            background-color: var(--bg-canvas);
+            color: var(--txt-primary);
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .swatch-card {
+            transition: transform 0.2s;
+        }
+        .swatch-card:hover {
+            transform: translateY(-2px);
+            z-index: 10;
+            box-shadow: var(--shadow-elevated);
+        }
+
+        /* Utility classes using variables */
+        .text-gradient-title {
+            background: var(--grad-text-title);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .rootrise-card {
+            background: var(--grad-surface-hybrid);
+            box-shadow: var(--shadow-card);
+            border: 1px solid var(--border-subtle);
+        }
+
+        .rootrise-btn-primary {
+            background: var(--grad-royal-bronze);
+            color: var(--txt-on-accent);
+            box-shadow: var(--shadow-btn);
+        }
+
+        .rootrise-input {
+            background: var(--bg-input);
+            border: 1px solid var(--border-teal);
+            color: var(--txt-primary);
+        }
+        .rootrise-input:focus {
+            outline: none;
+            border-color: var(--acc-gold);
+            box-shadow: var(--shadow-gold-glow);
+        }
+
+        .toast {
+            visibility: hidden;
+            min-width: 250px;
+            background-color: var(--acc-gold);
+            color: var(--txt-on-accent);
+            text-align: center;
+            border-radius: 4px;
+            padding: 16px;
+            position: fixed;
+            z-index: 1;
+            left: 50%;
+            bottom: 30px;
+            transform: translateX(-50%);
+            font-weight: bold;
+            box-shadow: var(--shadow-elevated);
+        }
+
+        .toast.show {
+            visibility: visible;
+            -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+
+        @keyframes fadein {
+            from {bottom: 0; opacity: 0;}
+            to {bottom: 30px; opacity: 1;}
+        }
+
+        @keyframes fadeout {
+            from {bottom: 30px; opacity: 1;}
+            to {bottom: 0; opacity: 0;}
+        }
+    </style>
+</head>
+<body class="min-h-screen pb-20">
+
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 backdrop-blur-md border-b" style="background-color: rgba(var(--bg-surface), 0.8); border-color: var(--border-subtle);">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full flex items-center justify-center" style="background: var(--grad-royal-bronze)">
+                        <i class="fa-solid fa-layer-group text-white text-xs"></i>
+                    </div>
+                    <span class="font-bold text-xl tracking-tight">RootRise <span class="font-light opacity-75">Design System</span></span>
+                </div>
+                <button id="themeToggle" class="p-2 rounded-lg transition-colors hover:bg-white/10 border border-transparent hover:border-[var(--border-subtle)]">
+                    <i class="fa-solid fa-moon" id="themeIcon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+
+        <!-- Introduction -->
+        <div class="mb-12 text-center">
+            <h1 class="text-5xl font-extrabold mb-4 text-gradient-title">Comprehensive Palette</h1>
+            <p class="text-lg max-w-2xl mx-auto" style="color: var(--txt-secondary)">
+                A unified color system designed for depth and clarity. Click any swatch to copy its value.
+                Toggle the theme to see semantic colors adapt.
+            </p>
+        </div>
+
+        <!-- Brand Colors -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
+                <i class="fa-solid fa-crown text-[var(--acc-gold)]"></i> Brand Colors (Constant)
+            </h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <!-- Royal Gold -->
+                <div class="swatch-card rounded-xl overflow-hidden cursor-pointer" onclick="copyToClipboard('#C9A227', '--acc-gold')">
+                    <div class="h-32 w-full flex items-center justify-center relative" style="background-color: #C9A227;">
+                        <span class="bg-black/20 text-white px-2 py-1 rounded text-sm font-mono backdrop-blur-sm">#C9A227</span>
+                    </div>
+                    <div class="p-4 rootrise-card">
+                        <p class="font-bold">Royal Gold</p>
+                        <p class="text-xs opacity-70 font-mono mt-1">--acc-gold</p>
+                        <p class="text-xs mt-2" style="color: var(--txt-secondary)">Primary accent, buttons</p>
+                    </div>
+                </div>
+                <!-- Devoneers Bronze -->
+                <div class="swatch-card rounded-xl overflow-hidden cursor-pointer" onclick="copyToClipboard('#C69C6D', '--acc-bronze')">
+                    <div class="h-32 w-full flex items-center justify-center relative" style="background-color: #C69C6D;">
+                        <span class="bg-black/20 text-white px-2 py-1 rounded text-sm font-mono backdrop-blur-sm">#C69C6D</span>
+                    </div>
+                    <div class="p-4 rootrise-card">
+                        <p class="font-bold">Devoneers Bronze</p>
+                        <p class="text-xs opacity-70 font-mono mt-1">--acc-bronze</p>
+                        <p class="text-xs mt-2" style="color: var(--txt-secondary)">Secondary accent</p>
+                    </div>
+                </div>
+                <!-- Deep Bronze -->
+                <div class="swatch-card rounded-xl overflow-hidden cursor-pointer" onclick="copyToClipboard('#805C33', '--acc-bronze-deep')">
+                    <div class="h-32 w-full flex items-center justify-center relative" style="background-color: #805C33;">
+                        <span class="bg-black/20 text-white px-2 py-1 rounded text-sm font-mono backdrop-blur-sm">#805C33</span>
+                    </div>
+                    <div class="p-4 rootrise-card">
+                        <p class="font-bold">Deep Bronze</p>
+                        <p class="text-xs opacity-70 font-mono mt-1">--acc-bronze-deep</p>
+                        <p class="text-xs mt-2" style="color: var(--txt-secondary)">Shadows, endpoints</p>
+                    </div>
+                </div>
+                <!-- Lagoon Mist -->
+                <div class="swatch-card rounded-xl overflow-hidden cursor-pointer" onclick="copyToClipboard('#2F6F79', '--acc-teal')">
+                    <div class="h-32 w-full flex items-center justify-center relative" style="background-color: #2F6F79;">
+                        <span class="bg-black/20 text-white px-2 py-1 rounded text-sm font-mono backdrop-blur-sm">#2F6F79</span>
+                    </div>
+                    <div class="p-4 rootrise-card">
+                        <p class="font-bold">Lagoon Mist</p>
+                        <p class="text-xs opacity-70 font-mono mt-1">--acc-teal</p>
+                        <p class="text-xs mt-2" style="color: var(--txt-secondary)">Glows, secondary strokes</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Semantic Theme Colors -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold mb-2 flex items-center gap-2">
+                <i class="fa-solid fa-adjust text-[var(--acc-gold)]"></i> Semantic Theme Colors
+            </h2>
+            <p class="mb-6 opacity-70">These colors automatically change when you toggle the theme switch in the navbar.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Backgrounds -->
+                <div class="space-y-4">
+                    <h3 class="text-lg font-semibold border-b pb-2" style="border-color: var(--border-subtle)">Backgrounds</h3>
+                    
+                    <div class="flex items-center gap-4 cursor-pointer group" onclick="copyToClipboard('var(--bg-canvas)', 'Canvas BG')">
+                        <div class="w-16 h-16 rounded-lg border shadow-sm group-hover:scale-110 transition-transform" style="background-color: var(--bg-canvas); border-color: var(--border-subtle)"></div>
+                        <div>
+                            <p class="font-bold">Canvas</p>
+                            <p class="font-mono text-xs opacity-60">--bg-canvas</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center gap-4 cursor-pointer group" onclick="copyToClipboard('var(--bg-surface)', 'Surface BG')">
+                        <div class="w-16 h-16 rounded-lg border shadow-sm group-hover:scale-110 transition-transform" style="background-color: var(--bg-surface); border-color: var(--border-subtle)"></div>
+                        <div>
+                            <p class="font-bold">Surface</p>
+                            <p class="font-mono text-xs opacity-60">--bg-surface</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-4 cursor-pointer group" onclick="copyToClipboard('var(--color-espresso-deeper)', 'Deeper BG')">
+                        <div class="w-16 h-16 rounded-lg border shadow-sm group-hover:scale-110 transition-transform" style="background-color: var(--color-espresso-deeper); border-color: var(--border-subtle)"></div>
+                        <div>
+                            <p class="font-bold">Deeper</p>
+                            <p class="font-mono text-xs opacity-60">--color-espresso-deeper</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text -->
+                <div class="space-y-4">
+                    <h3 class="text-lg font-semibold border-b pb-2" style="border-color: var(--border-subtle)">Typography</h3>
+                    
+                    <div class="p-4 rounded-lg cursor-pointer hover:bg-[var(--bg-surface-light)] transition-colors" onclick="copyToClipboard('var(--txt-primary)', 'Primary Text')">
+                        <h4 class="text-3xl font-bold" style="color: var(--txt-primary)">Primary Text</h4>
+                        <p class="font-mono text-xs opacity-60 mt-1">--txt-primary</p>
+                    </div>
+
+                    <div class="p-4 rounded-lg cursor-pointer hover:bg-[var(--bg-surface-light)] transition-colors" onclick="copyToClipboard('var(--txt-secondary)', 'Secondary Text')">
+                        <h4 class="text-xl font-medium" style="color: var(--txt-secondary)">Secondary Text</h4>
+                        <p class="font-mono text-xs opacity-60 mt-1">--txt-secondary</p>
+                    </div>
+
+                    <div class="p-4 rounded-lg cursor-pointer hover:bg-[var(--bg-surface-light)] transition-colors" onclick="copyToClipboard('var(--text-muted)', 'Muted Text')">
+                        <h4 class="text-lg" style="color: var(--text-muted)">Muted / Disabled Text</h4>
+                        <p class="font-mono text-xs opacity-60 mt-1">--text-muted</p>
+                    </div>
+                </div>
+
+                <!-- Borders & Accents -->
+                <div class="space-y-4">
+                    <h3 class="text-lg font-semibold border-b pb-2" style="border-color: var(--border-subtle)">Borders</h3>
+                    
+                    <div class="h-16 flex items-center justify-center border rounded-lg cursor-pointer hover:shadow-lg transition-all" style="border-color: var(--border-subtle); background: var(--bg-surface)" onclick="copyToClipboard('var(--border-subtle)', 'Subtle Border')">
+                        <span class="text-xs font-mono opacity-70">--border-subtle</span>
+                    </div>
+
+                    <div class="h-16 flex items-center justify-center border rounded-lg cursor-pointer hover:shadow-lg transition-all" style="border-color: var(--border-accent); background: var(--bg-surface)" onclick="copyToClipboard('var(--border-accent)', 'Accent Border')">
+                        <span class="text-xs font-mono opacity-70">--border-accent</span>
+                    </div>
+
+                    <div class="h-16 flex items-center justify-center border-2 rounded-lg cursor-pointer hover:shadow-lg transition-all" style="border-color: var(--border-strong); background: var(--bg-surface)" onclick="copyToClipboard('var(--border-strong)', 'Strong Border')">
+                        <span class="text-xs font-mono opacity-70">--border-strong</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gradients -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
+                <i class="fa-solid fa-swatchbook text-[var(--acc-gold)]"></i> Gradients
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <div class="cursor-pointer" onclick="copyToClipboard('var(--grad-royal-bronze)', 'Royal Bronze Gradient')">
+                    <div class="h-24 rounded-lg shadow-lg mb-3 relative flex items-center justify-center" style="background: var(--grad-royal-bronze)">
+                         <span class="bg-black/20 text-white px-2 py-1 rounded text-sm font-mono backdrop-blur-sm">Royal Bronze</span>
+                    </div>
+                    <p class="text-sm font-mono opacity-60">--grad-royal-bronze</p>
+                </div>
+
+                <div class="cursor-pointer" onclick="copyToClipboard('var(--grad-surface-hybrid)', 'Surface Hybrid Gradient')">
+                    <div class="h-24 rounded-lg shadow-lg mb-3 relative flex items-center justify-center border" style="background: var(--grad-surface-hybrid); border-color: var(--border-subtle)">
+                         <span class="bg-black/20 text-white px-2 py-1 rounded text-sm font-mono backdrop-blur-sm">Surface Hybrid</span>
+                    </div>
+                    <p class="text-sm font-mono opacity-60">--grad-surface-hybrid</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- UI Kit Preview -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
+                <i class="fa-solid fa-cubes text-[var(--acc-gold)]"></i> Component Preview
+            </h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                
+                <!-- Card Component -->
+                <div class="rootrise-card rounded-2xl p-8 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-[var(--acc-gold)] opacity-5 blur-[60px] rounded-full"></div>
+                    
+                    <h3 class="text-2xl font-bold mb-2">Premium Card</h3>
+                    <p class="mb-6" style="color: var(--txt-secondary)">This component uses <code class="text-xs bg-black/10 dark:bg-white/10 px-1 rounded">--grad-surface-hybrid</code> for the background and <code class="text-xs bg-black/10 dark:bg-white/10 px-1 rounded">--shadow-card</code> for depth.</p>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium mb-1" style="color: var(--txt-secondary)">Input Field</label>
+                            <input type="text" placeholder="Enter data..." class="rootrise-input w-full px-4 py-3 rounded-lg transition-all" />
+                        </div>
+
+                        <div class="flex gap-4 pt-4">
+                            <button class="rootrise-btn-primary px-6 py-2 rounded-lg font-semibold transform hover:scale-105 transition-transform">
+                                Action
+                            </button>
+                            <button class="px-6 py-2 rounded-lg font-semibold border transition-colors hover:bg-[var(--bg-gold-subtle)]" style="border-color: var(--border-accent); color: var(--acc-gold)">
+                                Secondary
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Status & Data -->
+                <div class="rootrise-card rounded-2xl p-8 flex flex-col justify-between">
+                    <div>
+                         <h3 class="text-xl font-bold mb-4">Data Visualization Colors</h3>
+                         <!-- Progress Bar -->
+                         <div class="mb-6">
+                            <div class="flex justify-between text-sm mb-1">
+                                <span>Progress</span>
+                                <span style="color: var(--acc-gold)">75%</span>
+                            </div>
+                            <div class="h-2 rounded-full overflow-hidden" style="background: var(--bg-input)">
+                                <div class="h-full w-3/4 rounded-full" style="background: linear-gradient(90deg, var(--color-gold-dark), var(--acc-gold), var(--color-gold-light))"></div>
+                            </div>
+                         </div>
+
+                         <div class="grid grid-cols-2 gap-4">
+                            <div class="p-3 rounded border text-center" style="border-color: var(--border-subtle); background: var(--bg-gold-very-subtle)">
+                                <i class="fa-solid fa-check-circle text-green-500 mb-1"></i>
+                                <p class="text-sm font-bold">Success</p>
+                            </div>
+                            <div class="p-3 rounded border text-center" style="border-color: var(--border-subtle); background: var(--bg-gold-very-subtle)">
+                                <i class="fa-solid fa-triangle-exclamation text-amber-500 mb-1"></i>
+                                <p class="text-sm font-bold">Warning</p>
+                            </div>
+                         </div>
+                    </div>
+                    
+                    <div class="mt-6 pt-6 border-t" style="border-color: var(--border-subtle)">
+                        <p class="text-xs font-mono" style="color: var(--text-muted)">
+                            Tailwind Class Mapping:<br>
+                            text-brand-gold -> var(--acc-gold)<br>
+                            bg-brand-bronze -> var(--acc-bronze)
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Configuration Export -->
+        <section>
+            <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
+                <i class="fa-solid fa-code text-[var(--acc-gold)]"></i> Tailwind Configuration
+            </h2>
+            <div class="rootrise-card rounded-xl p-0 overflow-hidden">
+                <div class="flex items-center justify-between px-4 py-2 border-b" style="background-color: var(--bg-surface-light); border-color: var(--border-subtle)">
+                    <span class="text-xs font-bold uppercase tracking-wider opacity-70">tailwind.config.js</span>
+                    <button onclick="copyCode()" class="text-xs hover:text-[var(--acc-gold)] transition-colors"><i class="fa-regular fa-copy"></i> Copy</button>
+                </div>
+                <div class="p-4 overflow-x-auto">
+<pre class="text-xs font-mono" style="color: var(--txt-secondary)" id="codeBlock">
+module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        'deep-abyss': '#042229',
+        'warm-charcoal': '#2D2420',
+        'espresso': {
+          DEFAULT: '#3A2E28',
+          dark: '#2D2420',
+          deeper: '#241E1A'
+        },
+        'royal-gold': '#C9A227',
+        'devoneers-bronze': '#C69C6D',
+        'deep-bronze': '#805C33',
+        'lagoon-mist': '#2F6F79',
+        'cream-white': '#F5F0E6',
+        'warm-gray': '#A89F94',
+        // Semantic aliases
+        brand: {
+          gold: 'var(--acc-gold)',
+          bronze: 'var(--acc-bronze)',
+          teal: 'var(--acc-teal)',
+        }
+      },
+      backgroundImage: {
+        'royal-bronze': 'var(--grad-royal-bronze)',
+        'surface-hybrid': 'var(--grad-surface-hybrid)',
+      }
+    }
+  }
+}
+</pre>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">Copied to Clipboard!</div>
+
+    <script>
+        // Theme Toggle Logic
+        const themeToggleBtn = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        const htmlElement = document.documentElement;
+
+        themeToggleBtn.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark');
+            htmlElement.classList.toggle('light'); // For completeness based on prompt usage
+            
+            if (htmlElement.classList.contains('dark')) {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            } else {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            }
+        });
+
+        // Initialize icon state
+        if (!htmlElement.classList.contains('dark')) {
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+        }
+
+        // Clipboard Logic
+        function copyToClipboard(text, name) {
+            const el = document.createElement('textarea');
+            el.value = text;
+            document.body.appendChild(el);
+            el.select();
+            document.execCommand('copy');
+            document.body.removeChild(el);
+            
+            const toast = document.getElementById("toast");
+            toast.innerText = `${name ? name + ': ' : ''}${text} copied!`;
+            toast.className = "toast show";
+            setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 3000);
+        }
+
+        function copyCode() {
+            const code = document.getElementById('codeBlock').innerText;
+            copyToClipboard(code, 'Tailwind Config');
+        }
+    </script>
+</body>
+</html>
