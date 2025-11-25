@@ -238,7 +238,7 @@
             </svg>
         </div>
 
-        <!-- Updated: Removed h-full/flex-col to allow natural vertical centering by parent -->
+        <!-- ... (Inside Header Content) ... -->
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
             <div class="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
                 <!-- Hero Content -->
@@ -303,6 +303,340 @@
             </div>
         </div>
     </header>
+
+    <!-- NEW SECTION: Interactive Stakeholder Intelligence (Replaces Video Showcase) -->
+    <section class="py-24 bg-ui-dark relative border-b border-brand-light/10 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-ui-text-primary mb-4">
+                    Unified Intelligence for <span class="brand-gradient-text">Every Stakeholder</span>
+                </h2>
+                <p class="text-lg text-ui-text-secondary">
+                    RootRise adapts its engine to deliver specific value across the ecosystem, turning isolated data into connected growth.
+                </p>
+            </div>
+
+            <!-- Interactive Accordion Container -->
+            <!-- Mobile: Vertical Stack (min-h-[800px]), Desktop: Horizontal Row (h-[600px]) -->
+            <div class="flex flex-col lg:flex-row gap-4 min-h-[800px] lg:min-h-0 lg:h-[600px] w-full">
+                
+                <!-- Card 1: For Investors (Gold) -->
+                <div class="group relative flex-1 hover:flex-[3] hover:lg:flex-[2.5] transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] rounded-3xl overflow-hidden cursor-pointer border border-brand-light/20 bg-ui-card">
+                    <!-- Background Transition Layer -->
+                    <div class="absolute inset-0 bg-ui-card group-hover:bg-brand-gold transition-colors duration-500"></div>
+                    
+                    <!-- Content Wrapper -->
+                    <div class="absolute inset-0 p-8 flex flex-col justify-between z-10">
+                        <!-- Top Content -->
+                        <div>
+                            <h3 class="text-3xl font-bold text-white group-hover:text-ui-dark mb-4 transition-colors duration-300">For Investors</h3>
+                            <p class="text-ui-text-secondary group-hover:text-ui-dark/80 text-lg transition-colors duration-300 max-w-xs">
+                                De-risk portfolios with real-time data and automated due diligence.
+                            </p>
+                        </div>
+
+                        <!-- Bottom Content (Icon -> Button & Features) -->
+                        <div class="transform translate-y-0 transition-transform duration-500">
+                            <!-- Default State: Icon -->
+                            <div class="w-12 h-12 rounded-lg bg-brand-gold flex items-center justify-center text-ui-dark text-xl group-hover:hidden transition-all">
+                                <i class="fa-solid fa-chart-line"></i>
+                            </div>
+
+                            <!-- Hover State: Expanded Features -->
+                            <div class="hidden group-hover:flex flex-col gap-6 animate-fade-in-up">
+                                <ul class="space-y-3">
+                                    <li class="flex items-center gap-3 text-ui-dark font-semibold">
+                                        <div class="w-6 h-6 rounded-full bg-white/30 flex items-center justify-center"><i class="fa-solid fa-check text-xs"></i></div>
+                                        <span>Automated Deal Scoring</span>
+                                    </li>
+                                    <li class="flex items-center gap-3 text-ui-dark font-semibold">
+                                        <div class="w-6 h-6 rounded-full bg-white/30 flex items-center justify-center"><i class="fa-solid fa-check text-xs"></i></div>
+                                        <span>Portfolio Heatmaps</span>
+                                    </li>
+                                    <li class="flex items-center gap-3 text-ui-dark font-semibold">
+                                        <div class="w-6 h-6 rounded-full bg-white/30 flex items-center justify-center"><i class="fa-solid fa-check text-xs"></i></div>
+                                        <span>Exit Readiness AI</span>
+                                    </li>
+                                </ul>
+                                <button class="bg-ui-dark text-white px-8 py-4 rounded-xl font-bold w-fit hover:bg-black/80 transition-all shadow-lg flex items-center gap-2">
+                                    Explore Investor Tools <i class="fa-solid fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide-in Visual (Enhanced Mockup: Deal Intelligence) -->
+                    <div class="absolute right-0 bottom-0 w-full lg:w-3/4 h-2/3 lg:h-3/4 transform translate-y-full lg:translate-y-0 lg:translate-x-full group-hover:translate-y-0 group-hover:translate-x-0 transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] delay-100 z-0 opacity-0 lg:group-hover:opacity-100 p-6 pointer-events-none">
+                        <!-- Glass Dashboard Container -->
+                        <div class="w-full h-full bg-ui-dark/90 backdrop-blur-xl rounded-tl-3xl rounded-br-2xl border border-white/10 p-5 shadow-2xl flex flex-col relative overflow-hidden group-hover:shadow-[0_20px_50px_rgba(225,165,73,0.3)] transition-shadow">
+                             
+                             <!-- Decorative Background Glow -->
+                             <div class="absolute -top-10 -right-10 w-40 h-40 bg-brand-gold/20 rounded-full blur-[50px] pointer-events-none"></div>
+
+                             <!-- Header: Live Intelligence -->
+                             <div class="flex justify-between items-center mb-5 border-b border-white/5 pb-3">
+                                 <div class="flex items-center gap-2.5">
+                                     <div class="relative flex h-2.5 w-2.5">
+                                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                                        <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
+                                      </div>
+                                     <span class="text-[10px] font-mono font-bold text-gray-300 uppercase tracking-widest">Deal Intelligence</span>
+                                 </div>
+                                 <div class="flex gap-1">
+                                     <div class="w-1 h-1 rounded-full bg-gray-500"></div>
+                                     <div class="w-1 h-1 rounded-full bg-gray-500"></div>
+                                     <div class="w-1 h-1 rounded-full bg-gray-500"></div>
+                                 </div>
+                             </div>
+
+                             <!-- Deal Item 1 (High Score) -->
+                             <div class="bg-white/5 rounded-xl p-3 mb-3 border border-white/5 flex items-center justify-between relative overflow-hidden">
+                                 <div class="absolute left-0 top-0 bottom-0 w-1 bg-brand-gold"></div>
+                                 <div class="flex items-center gap-3">
+                                     <div class="w-9 h-9 rounded-lg bg-blue-500/10 text-blue-400 flex items-center justify-center border border-blue-500/20 shadow-sm">
+                                         <i class="fa-solid fa-microchip text-xs"></i>
+                                     </div>
+                                     <div>
+                                         <div class="text-xs text-white font-bold tracking-wide">Nexus Tech Mfg</div>
+                                         <div class="text-[9px] text-gray-400 font-medium">Series B • Expansion</div>
+                                     </div>
+                                 </div>
+                                 <div class="text-right">
+                                     <div class="text-brand-gold font-mono font-bold text-lg leading-none">98<span class="text-xs">%</span></div>
+                                     <div class="text-[7px] text-gray-500 uppercase font-bold mt-0.5">Match Score</div>
+                                 </div>
+                             </div>
+
+                             <!-- Deal Item 2 -->
+                             <div class="bg-white/5 rounded-xl p-3 mb-4 border border-white/5 flex items-center justify-between opacity-80">
+                                 <div class="flex items-center gap-3">
+                                     <div class="w-9 h-9 rounded-lg bg-green-500/10 text-green-400 flex items-center justify-center border border-green-500/20 shadow-sm">
+                                         <i class="fa-solid fa-leaf text-xs"></i>
+                                     </div>
+                                     <div>
+                                         <div class="text-xs text-white font-bold tracking-wide">EcoAgri Sol.</div>
+                                         <div class="text-[9px] text-gray-400 font-medium">Seed • Sustainable</div>
+                                     </div>
+                                 </div>
+                                 <div class="text-right">
+                                     <div class="text-white font-mono font-bold text-lg leading-none">94<span class="text-xs">%</span></div>
+                                     <div class="text-[7px] text-gray-500 uppercase font-bold mt-0.5">Match Score</div>
+                                 </div>
+                             </div>
+
+                             <!-- Bottom: Mini Chart Area -->
+                             <div class="mt-auto relative h-20 w-full bg-gradient-to-t from-brand-gold/10 to-transparent -mx-1 -mb-2 rounded-b-lg">
+                                 <!-- Glowing Line Chart -->
+                                 <svg class="w-full h-full overflow-visible" preserveAspectRatio="none" viewBox="0 0 100 40">
+                                     <defs>
+                                         <linearGradient id="chartGlow" x1="0" y1="0" x2="0" y2="1">
+                                             <stop offset="0%" stop-color="#E1A549" stop-opacity="0.5"/>
+                                             <stop offset="100%" stop-color="#E1A549" stop-opacity="0"/>
+                                         </linearGradient>
+                                     </defs>
+                                     <path d="M0,40 L0,30 Q20,25 40,15 T80,10 T100,5 L100,40 Z" fill="url(#chartGlow)" opacity="0.3"></path>
+                                     <path d="M0,30 Q20,25 40,15 T80,10 T100,5" fill="none" stroke="#E1A549" stroke-width="1.5" stroke-linecap="round" class="drop-shadow-[0_0_8px_rgba(225,165,73,0.8)]"></path>
+                                     <!-- Animated Dot -->
+                                     <circle cx="100" cy="5" r="2" fill="white" class="animate-pulse"></circle>
+                                 </svg>
+                                 
+                                 <!-- Floating Tag -->
+                                 <div class="absolute bottom-2 right-2 bg-brand-gold/20 backdrop-blur-md border border-brand-gold/30 px-2 py-1 rounded text-[9px] text-brand-gold font-bold shadow-lg">
+                                     <i class="fa-solid fa-arrow-trend-up mr-1"></i> IRR +24%
+                                 </div>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: For SMEs (Teal/Blue) -->
+                <div class="group relative flex-1 hover:flex-[3] hover:lg:flex-[2.5] transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] rounded-3xl overflow-hidden cursor-pointer border border-brand-light/20 bg-ui-card">
+                    <div class="absolute inset-0 bg-ui-card group-hover:bg-[#2F6F79] transition-colors duration-500"></div>
+                    
+                    <div class="absolute inset-0 p-8 flex flex-col justify-between z-10">
+                        <div>
+                            <h3 class="text-3xl font-bold text-white mb-4 transition-colors duration-300">For SMEs</h3>
+                            <p class="text-ui-text-secondary group-hover:text-white/90 text-lg transition-colors duration-300 max-w-xs">
+                                Transform operations with AI-guided growth maps and resource matching.
+                            </p>
+                        </div>
+
+                        <div class="transform translate-y-0 transition-transform duration-500">
+                            <div class="w-12 h-12 rounded-lg bg-[#2F6F79] flex items-center justify-center text-white text-xl group-hover:hidden transition-all">
+                                <i class="fa-solid fa-rocket"></i>
+                            </div>
+
+                            <div class="hidden group-hover:flex flex-col gap-6 animate-fade-in-up">
+                                <ul class="space-y-3">
+                                    <li class="flex items-center gap-3 text-white font-semibold">
+                                        <div class="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center"><i class="fa-solid fa-check text-xs"></i></div>
+                                        <span>AI Diagnostics</span>
+                                    </li>
+                                    <li class="flex items-center gap-3 text-white font-semibold">
+                                        <div class="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center"><i class="fa-solid fa-check text-xs"></i></div>
+                                        <span>Resource Matching</span>
+                                    </li>
+                                    <li class="flex items-center gap-3 text-white font-semibold">
+                                        <div class="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center"><i class="fa-solid fa-check text-xs"></i></div>
+                                        <span>Growth Roadmap</span>
+                                    </li>
+                                </ul>
+                                <button class="bg-white text-[#2F6F79] px-8 py-4 rounded-xl font-bold w-fit hover:bg-gray-100 transition-all shadow-lg flex items-center gap-2">
+                                    Start Growth Journey <i class="fa-solid fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide-in Visual (Enhanced Mockup: Operational Health) -->
+                    <div class="absolute right-0 bottom-0 w-full lg:w-3/4 h-2/3 lg:h-3/4 transform translate-y-full lg:translate-y-0 lg:translate-x-full group-hover:translate-y-0 group-hover:translate-x-0 transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] delay-100 z-0 opacity-0 lg:group-hover:opacity-100 p-6 pointer-events-none">
+                         <!-- Glass Dashboard Container -->
+                        <div class="w-full h-full bg-ui-dark/90 backdrop-blur-xl rounded-tl-3xl rounded-br-2xl border border-white/10 p-5 shadow-2xl flex flex-col relative overflow-hidden group-hover:shadow-[0_20px_50px_rgba(47,111,121,0.3)] transition-shadow">
+                            
+                            <!-- Decorative Glow -->
+                            <div class="absolute -top-10 -right-10 w-40 h-40 bg-[#2F6F79]/20 rounded-full blur-[50px] pointer-events-none"></div>
+
+                            <!-- Header -->
+                            <div class="flex justify-between items-center mb-4 border-b border-white/5 pb-2">
+                                <div class="text-[10px] font-mono font-bold text-gray-300 uppercase tracking-widest">Growth Engine</div>
+                                <div class="bg-[#2F6F79]/20 text-[#2F6F79] text-[9px] px-2 py-0.5 rounded border border-[#2F6F79]/30">LIVE</div>
+                            </div>
+
+                            <!-- Diagnostic Score Section -->
+                            <div class="flex gap-4 items-center mb-5">
+                                <!-- Radial Progress -->
+                                <div class="relative w-16 h-16 flex items-center justify-center">
+                                    <svg class="transform -rotate-90 w-full h-full">
+                                        <circle cx="32" cy="32" r="28" stroke="currentColor" stroke-width="4" fill="transparent" class="text-white/10" />
+                                        <circle cx="32" cy="32" r="28" stroke="#2F6F79" stroke-width="4" fill="transparent" stroke-dasharray="175.9" stroke-dashoffset="26" class="drop-shadow-[0_0_4px_rgba(47,111,121,0.5)]" />
+                                    </svg>
+                                    <span class="absolute text-white font-bold text-lg">85</span>
+                                </div>
+                                <!-- Gap Analysis Bars -->
+                                <div class="flex-1 space-y-2">
+                                    <div class="flex justify-between text-[9px] text-gray-400 mb-0.5"><span>Operations</span> <span>90%</span></div>
+                                    <div class="w-full h-1 bg-white/10 rounded-full overflow-hidden">
+                                        <div class="h-full bg-white w-[90%] rounded-full"></div>
+                                    </div>
+                                    <div class="flex justify-between text-[9px] text-gray-400 mb-0.5"><span>Digital</span> <span>65%</span></div>
+                                    <div class="w-full h-1 bg-white/10 rounded-full overflow-hidden">
+                                        <div class="h-full bg-[#2F6F79] w-[65%] rounded-full shadow-[0_0_5px_#2F6F79]"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Recommended Action -->
+                            <div class="bg-white/5 rounded-lg p-3 border border-white/5 mt-auto">
+                                <div class="flex items-start gap-3">
+                                    <div class="w-8 h-8 rounded bg-[#2F6F79]/20 text-[#2F6F79] flex items-center justify-center border border-[#2F6F79]/30 flex-shrink-0">
+                                        <i class="fa-solid fa-clipboard-check text-xs"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-[10px] text-gray-400 uppercase font-bold mb-0.5">Next Best Action</div>
+                                        <div class="text-xs text-white font-semibold">Initiate Export Certification</div>
+                                        <div class="text-[9px] text-[#2F6F79] mt-1"><i class="fa-solid fa-arrow-right mr-1"></i> Unlock $50k Grant</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: For Governments (Bronze) -->
+                <div class="group relative flex-1 hover:flex-[3] hover:lg:flex-[2.5] transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] rounded-3xl overflow-hidden cursor-pointer border border-brand-light/20 bg-ui-card">
+                    <div class="absolute inset-0 bg-ui-card group-hover:bg-[#C69C6D] transition-colors duration-500"></div>
+                    
+                    <div class="absolute inset-0 p-8 flex flex-col justify-between z-10">
+                        <div>
+                            <h3 class="text-3xl font-bold text-white group-hover:text-ui-dark mb-4 transition-colors duration-300">For Governments</h3>
+                            <p class="text-ui-text-secondary group-hover:text-ui-dark/80 text-lg transition-colors duration-300 max-w-xs">
+                                Visualise economic impact and track job creation across sectors.
+                            </p>
+                        </div>
+
+                        <div class="transform translate-y-0 transition-transform duration-500">
+                            <div class="w-12 h-12 rounded-lg bg-[#C69C6D] flex items-center justify-center text-ui-dark text-xl group-hover:hidden transition-all">
+                                <i class="fa-solid fa-building-columns"></i>
+                            </div>
+
+                            <div class="hidden group-hover:flex flex-col gap-6 animate-fade-in-up">
+                                <ul class="space-y-3">
+                                    <li class="flex items-center gap-3 text-ui-dark font-semibold">
+                                        <div class="w-6 h-6 rounded-full bg-white/30 flex items-center justify-center"><i class="fa-solid fa-check text-xs"></i></div>
+                                        <span>Sector Analytics</span>
+                                    </li>
+                                    <li class="flex items-center gap-3 text-ui-dark font-semibold">
+                                        <div class="w-6 h-6 rounded-full bg-white/30 flex items-center justify-center"><i class="fa-solid fa-check text-xs"></i></div>
+                                        <span>Job Creation Tracker</span>
+                                    </li>
+                                    <li class="flex items-center gap-3 text-ui-dark font-semibold">
+                                        <div class="w-6 h-6 rounded-full bg-white/30 flex items-center justify-center"><i class="fa-solid fa-check text-xs"></i></div>
+                                        <span>Policy Modeling</span>
+                                    </li>
+                                </ul>
+                                <button class="bg-ui-dark text-white px-8 py-4 rounded-xl font-bold w-fit hover:bg-black/80 transition-all shadow-lg flex items-center gap-2">
+                                    View Impact Data <i class="fa-solid fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide-in Visual (Enhanced Mockup: Economic Impact) -->
+                    <div class="absolute right-0 bottom-0 w-full lg:w-3/4 h-2/3 lg:h-3/4 transform translate-y-full lg:translate-y-0 lg:translate-x-full group-hover:translate-y-0 group-hover:translate-x-0 transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] delay-100 z-0 opacity-0 lg:group-hover:opacity-100 p-6 pointer-events-none">
+                        <!-- Glass Dashboard Container -->
+                        <div class="w-full h-full bg-ui-dark/90 backdrop-blur-xl rounded-tl-3xl rounded-br-2xl border border-white/10 p-5 shadow-2xl flex flex-col relative overflow-hidden group-hover:shadow-[0_20px_50px_rgba(198,156,109,0.3)] transition-shadow">
+                             
+                             <!-- Decorative Glow -->
+                             <div class="absolute -top-10 -right-10 w-40 h-40 bg-[#C69C6D]/20 rounded-full blur-[50px] pointer-events-none"></div>
+
+                             <!-- Header -->
+                             <div class="flex justify-between items-center mb-2 border-b border-white/5 pb-2">
+                                <div class="text-[10px] font-mono font-bold text-gray-300 uppercase tracking-widest">Impact Command</div>
+                                <i class="fa-solid fa-globe text-[#C69C6D]"></i>
+                            </div>
+
+                             <!-- Stylized Map Visualization -->
+                             <div class="relative flex-1 bg-white/5 rounded-lg mb-4 overflow-hidden border border-white/5">
+                                 <!-- Abstract Grid Map -->
+                                 <div class="absolute inset-0" style="background-image: radial-gradient(rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 10px 10px; opacity: 0.3;"></div>
+                                 
+                                 <!-- Pulse Node 1 -->
+                                 <div class="absolute top-1/3 left-1/4">
+                                     <div class="w-3 h-3 bg-[#C69C6D] rounded-full animate-ping absolute opacity-75"></div>
+                                     <div class="w-3 h-3 bg-[#C69C6D] rounded-full relative shadow-[0_0_10px_#C69C6D]"></div>
+                                 </div>
+                                 <!-- Pulse Node 2 -->
+                                 <div class="absolute bottom-1/3 right-1/3">
+                                     <div class="w-2 h-2 bg-white rounded-full animate-ping absolute opacity-50 delay-700"></div>
+                                     <div class="w-2 h-2 bg-white rounded-full relative"></div>
+                                 </div>
+
+                                 <!-- Floating Info Card -->
+                                 <div class="absolute bottom-2 left-2 bg-ui-dark/80 backdrop-blur border border-white/10 p-2 rounded shadow-lg">
+                                     <div class="text-[8px] text-gray-400">AGRI-TECH ZONE</div>
+                                     <div class="text-[10px] text-white font-bold">+15% Efficiency</div>
+                                 </div>
+                             </div>
+
+                             <!-- Key Metrics Row -->
+                             <div class="flex justify-between items-end">
+                                 <div>
+                                     <div class="text-[9px] text-gray-400 font-bold uppercase mb-0.5">Jobs Created</div>
+                                     <div class="text-2xl font-mono font-bold text-white leading-none">12,450</div>
+                                     <div class="text-[8px] text-[#C69C6D] mt-0.5"><i class="fa-solid fa-arrow-up"></i> 8.4% this Qtr</div>
+                                 </div>
+                                 <div class="text-right">
+                                     <div class="text-[9px] text-gray-400 font-bold uppercase mb-0.5">GDP Contrib.</div>
+                                     <div class="text-xl font-mono font-bold text-white leading-none">$45M</div>
+                                 </div>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
 
     <!-- What RootRise Delivers (Live UI Simulation Design) -->
     <section class="py-20 md:py-32 bg-ui-dark relative overflow-hidden" id="features">
