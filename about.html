@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About RootRise | Transforming SME Growth</title>
+    <meta name="description" content="Empowering small and medium enterprises with AI-driven diagnostic tools and actionable insights for sustainable business transformation.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            gold: '#E1A549',
+                            dark: '#132938',
+                            medium: '#23445B',
+                            light: '#2D5068',
+                        },
+                        ui: {
+                            dark: '#18243D',
+                            card: '#213552',
+                            text: {
+                                primary: '#FFFFFF',
+                                secondary: '#9CA6BA',
+                            }
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Crimson Text', 'serif'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #18243D;
+            color: #9CA6BA;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            color: #FFFFFF;
+        }
+
+        .brand-gradient-text {
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-image: linear-gradient(90deg, #E1A549 0%, #F5D76E 100%);
+        }
+
+        /* Glass Panel Style matching index.html */
+        .glass-panel {
+            background: rgba(33, 53, 82, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(225, 165, 73, 0.2);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        #mobile-menu {
+            transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+        #mobile-menu.open {
+            max-height: 400px;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-brand-gold selection:text-brand-dark flex flex-col min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-ui-dark/95 backdrop-blur-md border-b border-brand-light/30 z-50 transition-all duration-300" id="navbar">
+        <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center gap-3">
+                    <img src="https://rootrise.devoneers.org/files/Rootrise%20Logo.png" alt="RootRise" class="h-12 w-auto object-contain">
+                    <div class="flex flex-col justify-center">
+                        <span class="text-[0.65rem] uppercase tracking-wider text-ui-text-secondary font-semibold mt-1">by DEVONEERS</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html#features" class="text-ui-text-primary hover:text-brand-gold font-medium transition-colors">Platform</a>
+                    <a href="about.html" class="text-brand-gold font-medium transition-colors">Our Approach</a>
+                    <a href="index.html#mission" class="text-ui-text-primary hover:text-brand-gold font-medium transition-colors">Mission</a>
+                </div>
+
+                <!-- CTA -->
+                <div class="hidden md:flex items-center gap-4">
+                    <a href="#" class="text-ui-text-primary font-semibold hover:text-brand-gold transition-colors">Log In</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-ui-text-primary hover:text-brand-gold p-2 focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="md:hidden bg-ui-dark border-b border-brand-light/30">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="index.html" class="block px-3 py-3 text-base font-medium text-ui-text-primary hover:bg-brand-light/20 hover:text-brand-gold rounded-[3px]">Home</a>
+                <a href="#" class="block px-3 py-3 text-base font-medium text-brand-gold bg-brand-light/10 rounded-[3px]">Our Approach</a>
+                <div class="pt-4 mt-4 border-t border-brand-light/30">
+                    <a href="#" class="block w-full text-center px-4 py-3 text-ui-text-primary font-semibold border border-brand-light/50 hover:bg-brand-light/10 rounded-[3px]">Log In</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 bg-brand-dark overflow-hidden">
+        <!-- Abstract Background -->
+        <div class="absolute inset-0 w-full h-full z-0 opacity-30">
+            <div class="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-medium rounded-full blur-[120px] translate-x-1/3 -translate-y-1/3"></div>
+            <div class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-brand-gold/20 rounded-full blur-[100px] -translate-x-1/3 translate-y-1/3"></div>
+            <!-- Grid overlay -->
+            <div class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
+        </div>
+
+        <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 drop-shadow-lg">
+                Transforming <span class="brand-gradient-text">SME Growth</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-ui-text-secondary max-w-3xl mx-auto font-light leading-relaxed">
+                Empowering small and medium enterprises with AI-driven diagnostic tools and actionable insights for sustainable business transformation.
+            </p>
+        </div>
+    </header>
+
+    <!-- What Drives Us -->
+    <section class="py-24 bg-ui-dark border-b border-brand-light/10">
+        <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-start">
+                <!-- Sticky Heading -->
+                <div class="lg:sticky lg:top-32">
+                    <div class="flex items-center gap-3 mb-4 text-brand-gold uppercase tracking-widest text-sm font-bold">
+                        <span class="w-8 h-[1px] bg-brand-gold"></span> What Drives Us
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">
+                        Our mission to transform SME growth through innovation.
+                    </h2>
+                    <div class="w-full h-64 bg-brand-light/10 border border-brand-light/20 rounded-[3px] relative overflow-hidden hidden lg:block">
+                        <!-- Decorative Abstract Shapes -->
+                        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 border border-brand-gold/30 rounded-full animate-[spin_10s_linear_infinite]"></div>
+                        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 border border-brand-gold/50 rounded-full"></div>
+                    </div>
+                </div>
+
+                <!-- Content -->
+                <div class="space-y-6 text-lg text-ui-text-secondary leading-relaxed">
+                    <p>
+                        <strong class="text-white">DEVONEERS</strong> is a purpose-driven organization committed to enabling inclusive economic growth by tackling the persistent barriers that constrain SME transformation in fragile and transitioning economies.
+                    </p>
+                    <p>
+                        SME transformation today is costly, fragmented, and slow. Enterprises spend heavily on training and consulting, yet remain trapped in outdated systems, unstructured processes, and weak management practices that prevent them from scaling or attracting investment. Traditional interventions take months to produce static reports and rarely leave behind continuity or measurable progress.
+                    </p>
+                    <div class="p-6 bg-brand-medium/10 border-l-4 border-brand-gold my-8 rounded-r-[3px]">
+                        <p class="text-white italic font-serif text-xl">
+                            "Digitization and AI adoption remain surface-level, limited to generic tools rather than embedded in core workflows and decision-making."
+                        </p>
+                    </div>
+                    <p>
+                        This gap is a missed opportunity: SMEs form the backbone of economies, yet lack access to affordable, effective, tech-enabled solutions. By reframing SME upgrading as a data- and AI-powered process, transformation can become faster, measurable, and affordable at scale, creating a blueprint for replication worldwide.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Approach -->
+    <section class="py-24 bg-brand-dark relative overflow-hidden">
+        <!-- Decor -->
+        <div class="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none">
+            <div class="absolute top-10 right-10 w-64 h-64 border border-white rounded-full"></div>
+            <div class="absolute top-10 right-10 w-60 h-60 border border-white rounded-full opacity-50"></div>
+        </div>
+
+        <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="flex items-center justify-center gap-3 mb-4 text-brand-gold uppercase tracking-widest text-sm font-bold">
+                    <span class="w-8 h-[1px] bg-brand-gold"></span> Our Approach <span class="w-8 h-[1px] bg-brand-gold"></span>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">How we deliver transformation at scale</h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-ui-card border border-brand-light/20 p-8 hover:border-brand-gold/50 transition-all duration-300 group rounded-[3px] relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-1 h-full bg-brand-gold group-hover:h-full transition-all duration-500"></div>
+                    <div class="w-14 h-14 bg-brand-gold/10 text-brand-gold flex items-center justify-center text-2xl mb-6 rounded-[3px] border border-brand-gold/20">
+                        <i class="fa-solid fa-stethoscope"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">AI-Powered Diagnostics</h3>
+                    <p class="text-ui-text-secondary leading-relaxed">
+                        Comprehensive business assessments using advanced AI algorithms to identify growth opportunities and operational inefficiencies instantly.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-ui-card border border-brand-light/20 p-8 hover:border-brand-gold/50 transition-all duration-300 group rounded-[3px] relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-1 h-full bg-[#2F6F79] group-hover:h-full transition-all duration-500"></div>
+                    <div class="w-14 h-14 bg-[#2F6F79]/10 text-[#2F6F79] flex items-center justify-center text-2xl mb-6 rounded-[3px] border border-[#2F6F79]/20">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">AI Assisted Implementation</h3>
+                    <p class="text-ui-text-secondary leading-relaxed">
+                        Fast-track transformation with actionable insights delivered in days, not months, enabling immediate business impact and agile pivots.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-ui-card border border-brand-light/20 p-8 hover:border-brand-gold/50 transition-all duration-300 group rounded-[3px] relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-1 h-full bg-[#C69C6D] group-hover:h-full transition-all duration-500"></div>
+                    <div class="w-14 h-14 bg-[#C69C6D]/10 text-[#C69C6D] flex items-center justify-center text-2xl mb-6 rounded-[3px] border border-[#C69C6D]/20">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Measurable Results</h3>
+                    <p class="text-ui-text-secondary leading-relaxed">
+                        Data-driven progress tracking with clear metrics and KPIs to ensure continuous improvement and verifiable sustainable growth.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hybrid Intelligence Process -->
+    <section class="py-24 bg-ui-dark border-t border-brand-light/10">
+        <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-20">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-2">Blending AI intelligence and human practitioner insights</h2>
+                <p class="text-xl text-brand-gold font-serif italic">Creating data-driven and grounded reality</p>
+            </div>
+
+            <div class="relative">
+                <!-- Connecting Line (Desktop) -->
+                <div class="hidden md:block absolute top-1/2 left-0 w-full h-[1px] bg-brand-light/30 -translate-y-1/2 z-0"></div>
+
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10">
+                    <!-- Step 1 -->
+                    <div class="group">
+                        <div class="bg-ui-dark border border-brand-light/30 p-6 h-full hover:border-brand-gold transition-colors rounded-[3px] flex flex-col items-center text-center relative">
+                            <div class="w-12 h-12 bg-brand-dark border border-brand-light text-white flex items-center justify-center text-lg font-bold mb-4 rounded-[3px] z-10 group-hover:bg-brand-gold group-hover:border-brand-gold group-hover:text-ui-dark transition-all">1</div>
+                            <h4 class="text-lg font-bold text-white mb-2">Smart Data Capture</h4>
+                            <span class="inline-block px-3 py-1 bg-brand-light/20 text-xs text-brand-light border border-brand-light/20 rounded-[3px] mb-2">Human - AI</span>
+                            <p class="text-sm text-ui-text-secondary">Collecting structured inputs through digitized assessments.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="group">
+                        <div class="bg-ui-dark border border-brand-light/30 p-6 h-full hover:border-brand-gold transition-colors rounded-[3px] flex flex-col items-center text-center relative">
+                            <div class="w-12 h-12 bg-brand-dark border border-brand-light text-white flex items-center justify-center text-lg font-bold mb-4 rounded-[3px] z-10 group-hover:bg-brand-gold group-hover:border-brand-gold group-hover:text-ui-dark transition-all">2</div>
+                            <h4 class="text-lg font-bold text-white mb-2">Intelligent Processing</h4>
+                            <span class="inline-block px-3 py-1 bg-brand-gold/10 text-brand-gold border border-brand-gold/20 rounded-[3px] mb-2">AI Core</span>
+                            <p class="text-sm text-ui-text-secondary">Analyzing patterns and benchmarking against thousands of data points.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="group">
+                        <div class="bg-ui-dark border border-brand-light/30 p-6 h-full hover:border-brand-gold transition-colors rounded-[3px] flex flex-col items-center text-center relative">
+                            <div class="w-12 h-12 bg-brand-dark border border-brand-light text-white flex items-center justify-center text-lg font-bold mb-4 rounded-[3px] z-10 group-hover:bg-brand-gold group-hover:border-brand-gold group-hover:text-ui-dark transition-all">3</div>
+                            <h4 class="text-lg font-bold text-white mb-2">Advisor Validation</h4>
+                            <span class="inline-block px-3 py-1 bg-white/10 text-white border border-white/20 rounded-[3px] mb-2">Human - AI Loop</span>
+                            <p class="text-sm text-ui-text-secondary">Expert refinement to ensure context and practical applicability.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="group">
+                        <div class="bg-ui-dark border border-brand-light/30 p-6 h-full hover:border-brand-gold transition-colors rounded-[3px] flex flex-col items-center text-center relative">
+                            <div class="w-12 h-12 bg-brand-dark border border-brand-light text-white flex items-center justify-center text-lg font-bold mb-4 rounded-[3px] z-10 group-hover:bg-brand-gold group-hover:border-brand-gold group-hover:text-ui-dark transition-all">4</div>
+                            <h4 class="text-lg font-bold text-white mb-2">Actionable Outputs</h4>
+                            <span class="inline-block px-3 py-1 bg-brand-light/20 text-brand-light border border-brand-light/20 rounded-[3px] mb-2">AI - Human</span>
+                            <p class="text-sm text-ui-text-secondary">Delivering clear growth pathways and implementation steps.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-b from-brand-dark to-ui-dark text-center">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-white mb-6">Ready to Transform Your Business?</h2>
+            <p class="text-xl text-ui-text-secondary mb-10">
+                Join hundreds of SMEs that have accelerated their growth with our AI-powered diagnostic platform.
+            </p>
+            <a href="#" class="inline-flex items-center gap-3 text-brand-gold font-bold text-xl hover:text-white transition-colors group">
+                Start Your Transformation <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-dark text-ui-text-secondary pt-16 pb-8 border-t border-ui-card mt-auto">
+        <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+                <div class="col-span-2 md:col-span-1">
+                    <div class="mb-6">
+                        <img src="https://rootrise.devoneers.org/files/Rootrise%20Logo.png" alt="RootRise" class="h-10 w-auto object-contain">
+                    </div>
+                    <p class="text-sm text-ui-text-secondary mb-4">
+                        Powered by DEVONEERS. <br>
+                        AI Infrastructure for SME Intelligence.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="hover:text-brand-gold transition-colors"><i class="fa-brands fa-linkedin text-xl"></i></a>
+                        <a href="#" class="hover:text-brand-gold transition-colors"><i class="fa-brands fa-twitter text-xl"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-ui-text-primary font-bold mb-4">Platform</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-brand-gold transition-colors">Diagnostics</a></li>
+                        <li><a href="#" class="hover:text-brand-gold transition-colors">Transformation</a></li>
+                        <li><a href="#" class="hover:text-brand-gold transition-colors">Implementation</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-ui-text-primary font-bold mb-4">Company</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-brand-gold transition-colors">About Devoneers</a></li>
+                        <li><a href="#" class="hover:text-brand-gold transition-colors">Our Mission</a></li>
+                        <li><a href="#" class="hover:text-brand-gold transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-ui-text-primary font-bold mb-4">Resources</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-brand-gold transition-colors">Blog</a></li>
+                        <li><a href="#" class="hover:text-brand-gold transition-colors">Case Studies</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-ui-card pt-8 flex flex-col md:flex-row justify-between items-center text-sm gap-4">
+                <p class="text-center md:text-left">&copy; 2024 RootRise by DEVONEERS. All rights reserved.</p>
+                <div class="flex gap-6 justify-center md:justify-end">
+                    <a href="#" class="hover:text-ui-text-primary">Privacy Policy</a>
+                    <a href="#" class="hover:text-ui-text-primary">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Logic
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+            const icon = mobileMenuBtn.querySelector('i');
+            if(mobileMenu.classList.contains('open')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            } else {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            }
+        });
+    </script>
+</body>
+</html>
